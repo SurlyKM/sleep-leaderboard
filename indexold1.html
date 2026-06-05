@@ -135,52 +135,6 @@
     line-height: 1;
     font-family: 'DM Mono', monospace;
   }
-  .wooden-spoon {
-    background: linear-gradient(135deg, rgba(139,90,60,0.08) 0%, rgba(139,90,60,0.03) 100%);
-    border: 1px solid rgba(139,90,60,0.2);
-    border-radius: 12px;
-    padding: 14px 20px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .wooden-spoon-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
-  .wooden-spoon-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #8b5a3c;
-    margin-bottom: 3px;
-    font-family: "DM Mono", monospace;
-  }
-  .wooden-spoon-name {
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: capitalize;
-    color: var(--text);
-    letter-spacing: -0.01em;
-  }
-  .wooden-spoon-right {
-    margin-left: auto;
-    text-align: right;
-    flex-shrink: 0;
-  }
-  .wooden-spoon-score {
-    font-size: 28px;
-    font-weight: 700;
-    color: #a0684a;
-    line-height: 1;
-    font-family: "DM Mono", monospace;
-  }
-  .wooden-spoon-date {
-    font-size: 10px;
-    color: var(--muted);
-    margin-top: 3px;
-    font-family: "DM Mono", monospace;
-  }
-
   .champion-avg-label {
     font-size: 10px;
     color: var(--muted);
@@ -457,22 +411,6 @@ function rankClass(i) {
   return ['r1','r2','r3'][i] || '';
 }
 
-function renderWoodenSpoon(ws) {
-  if (!ws) return '';
-  return `
-    <div class="wooden-spoon">
-      <div class="wooden-spoon-icon">🥄</div>
-      <div>
-        <div class="wooden-spoon-label">Wooden spoon &middot; 30-day low</div>
-        <div class="wooden-spoon-name">${ws.name}</div>
-      </div>
-      <div class="wooden-spoon-right">
-        <div class="wooden-spoon-score">${ws.score}</div>
-        <div class="wooden-spoon-date">${ws.date}</div>
-      </div>
-    </div>`;
-}
-
 function renderChampion(users) {
   const withAvg = users.filter(u => u.weekly_avg !== null && u.weekly_avg !== undefined);
   if (withAvg.length === 0) return '';
@@ -567,8 +505,7 @@ async function load() {
     document.getElementById('updatedAt').textContent =
       data.updated_at ? `Updated ${data.updated_at.replace('T', ' ')}` : '';
 
-    document.getElementById('championWrap').innerHTML =
-      renderChampion(data.users || []) + renderWoodenSpoon(data.wooden_spoon || null);
+    document.getElementById('championWrap').innerHTML = renderChampion(data.users || []);
     document.getElementById('board').innerHTML = (data.users || []).map(renderRow).join('');
 
     document.querySelectorAll('.row[data-name]').forEach(row => {
