@@ -51,7 +51,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Update leaderboard data $(date -u +%Y-%m-%d)"
+            git commit -m "Update leaderboard data $(date +%Y-%m-%d)"
             git pull --rebase --autostash
             git push
           fi
