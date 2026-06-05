@@ -64,19 +64,19 @@
       "name": "Samgria",
       "latest": {
         "date": "2026-06-06",
-        "score": 61,
+        "score": 62,
         "quality": "FAIR",
-        "total": 25200,
-        "total_str": "7h 0m",
+        "total": 29640,
+        "total_str": "8h 14m",
         "deep": 1800,
         "deep_str": "30m",
-        "deep_pct": 7.1,
-        "light": 22260,
-        "light_str": "6h 11m",
-        "light_pct": 88.3,
+        "deep_pct": 6.1,
+        "light": 26700,
+        "light_str": "7h 25m",
+        "light_pct": 90.1,
         "rem": 1140,
         "rem_str": "19m",
-        "rem_pct": 4.5,
+        "rem_pct": 3.8,
         "awake": 600,
         "awake_str": "10m",
         "avg_hr": 55.0,
@@ -88,7 +88,7 @@
         "resting_hr": 45,
         "body_battery_change": null
       },
-      "weekly_avg": 73.9,
+      "weekly_avg": 74.0,
       "history": [
         {
           "date": "2026-05-31",
@@ -116,7 +116,7 @@
         },
         {
           "date": "2026-06-06",
-          "score": 61
+          "score": 62
         }
       ]
     },
@@ -187,5 +187,5 @@
     "date": "2026-05-31",
     "quality": "POOR"
   },
-  "updated_at": "2026-06-06T07:29:13"
+  "updated_at": "2026-06-06T08:05:23"
 }
