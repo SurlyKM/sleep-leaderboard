@@ -16,6 +16,11 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    # GitHub runners are UTC, which makes "today" lag behind Sydney by 10-11
+    # hours and causes a morning run to fetch the previous day's sleep. This
+    # makes the Python code see Sydney local time instead.
+    env:
+      TZ: Australia/Sydney
     steps:
       - name: Checkout repo
         uses: actions/checkout@v5
