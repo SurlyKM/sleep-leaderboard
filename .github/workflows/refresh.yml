@@ -1,0 +1,52 @@
+name: Refresh Sleep Leaderboard
+
+# Runs daily and can also be triggered by hand from the Actions tab.
+# GitHub cron is always in UTC. 23:00 UTC is roughly 9am Sydney (AEST)
+# or 10am Sydney (AEDT during daylight saving). Adjust below if you like;
+# use https://crontab.guru to check.
+on:
+  schedule:
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+
+# Needed so the job can commit the updated JSON + cache back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Restore Garmin tokens from secret
+        run: echo "${{ secrets.GARMIN_TOKENS }}" | base64 -d | tar xzf -
+
+      - name: Fetch data and build JSON
+        run: python refresh.py
+
+      - name: Remove tokens from runner
+        if: always()
+        run: rm -rf tokens
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scores.json activities.json data
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update leaderboard data $(date -u +%Y-%m-%d)"
+            git pull --rebase --autostash
+            git push
+          fi
