@@ -48,28 +48,6 @@
 
   .wrap { max-width: 860px; margin: 0 auto; }
 
-  /* Nav */
-  .nav {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 32px;
-  }
-  .nav a {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    transition: all 0.12s;
-  }
-  .nav a:hover { border-color: var(--border-bright); color: var(--text); }
-  .nav a.active { background: var(--card); border-color: var(--accent); color: var(--accent); }
-
   /* Header */
   header { margin-bottom: 36px; }
   .header-top {
@@ -322,10 +300,6 @@
 </head>
 <body>
 <div class="wrap">
-  <nav class="nav">
-    <a href="index.html" class="active">Sleep</a>
-    <a href="activities.html">Activity</a>
-  </nav>
   <header>
     <div class="header-top">
       <h1>Sleep <span>Leaderboard</span></h1>
