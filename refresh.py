@@ -9,8 +9,6 @@ Does everything in one shot:
   - Fetches today's sleep and activity data
   - Updates local cache files in data/
   - Writes scores.json and activities.json ready to copy to GitHub Pages
-
-No need to run app.py first.
 """
 
 import json
