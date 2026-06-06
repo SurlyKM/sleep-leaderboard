@@ -18,25 +18,17 @@ During installation on Windows, check the box that says **Add Python to PATH**.
 
 Download [`garmin_setup_friend.py`](garmin_setup_friend.py) from this repo (click the file, then the download button).
 
-### Step 3 - Install the Garmin library
+### Step 3 - Run the setup script
 
-Open Terminal (Mac) or Command Prompt (Windows) and run:
-
-```
-pip install garminconnect
-```
-
-### Step 4 - Run the setup script
-
-In the same terminal, navigate to where you downloaded the file and run:
+Open Terminal (Mac) or Command Prompt (Windows), navigate to where you downloaded the file, and run:
 
 ```
 python garmin_setup_friend.py
 ```
 
-It will ask for your Garmin email, password, and MFA code. Your password is used once to log in and is never saved or sent anywhere.
+It will ask for your Garmin email, password, and MFA code. Your password is used once to log in and is never saved or sent anywhere. Any packages the script needs are installed into a temporary folder and automatically cleaned up afterwards, so nothing is left behind on your machine.
 
-### Step 5 - Send your token file
+### Step 4 - Send your token file
 
 The script generates a file called `yourname_garmin_token.txt`. Send that file to the leaderboard admin.
 
