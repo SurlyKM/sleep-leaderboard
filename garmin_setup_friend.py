@@ -6,35 +6,92 @@ Your email and password never leave your machine.
 
 Requirements: Python 3.9+ (https://www.python.org/downloads/)
 
-First time only - install the Garmin library:
-    pip install garminconnect
-
-Then run:
+Just run:
     python garmin_setup_friend.py
 
-You will be given a short text string to send to the leaderboard admin.
-That string contains NO password or email - just a secure session token.
+No admin rights needed. Any packages installed are temporary and
+automatically cleaned up when the script finishes.
 """
+
+import sys
+import os
+
+
+def bootstrap():
+    """
+    If garminconnect is not installed, create a temporary venv, install it
+    there, re-run this script inside the venv, then clean up. Nothing is
+    left behind on the machine.
+    """
+    try:
+        from garminconnect import Garmin  # noqa: F401
+        return  # already available, nothing to do
+    except ImportError:
+        pass
+
+    # Check we haven't already been re-invoked inside a temp venv
+    if os.environ.get("_GARMIN_SETUP_VENV"):
+        print("Could not import garminconnect even after installing. "
+              "Try running:  pip install garminconnect  and try again.")
+        sys.exit(1)
+
+    import shutil
+    import subprocess
+    import tempfile
+
+    print("garminconnect not found - creating a temporary environment...")
+
+    venv_dir = tempfile.mkdtemp(prefix="garmin_setup_")
+    try:
+        # Create venv
+        subprocess.run(
+            [sys.executable, "-m", "venv", venv_dir],
+            check=True, capture_output=True,
+        )
+
+        # Path to venv python
+        if sys.platform == "win32":
+            venv_python = os.path.join(venv_dir, "Scripts", "python.exe")
+        else:
+            venv_python = os.path.join(venv_dir, "bin", "python")
+
+        # Install garminconnect quietly
+        print("Installing garminconnect (temporary, will be removed after)...")
+        subprocess.run(
+            [venv_python, "-m", "pip", "install", "garminconnect", "-q",
+             "--disable-pip-version-check"],
+            check=True,
+        )
+
+        # Re-run this script inside the venv
+        env = os.environ.copy()
+        env["_GARMIN_SETUP_VENV"] = "1"
+        result = subprocess.run(
+            [venv_python, os.path.abspath(__file__)] + sys.argv[1:],
+            env=env,
+        )
+        sys.exit(result.returncode)
+
+    finally:
+        shutil.rmtree(venv_dir, ignore_errors=True)
+
+
+bootstrap()
+
+# ---------------------------------------------------------------------------
+# From here on, garminconnect is available
+# ---------------------------------------------------------------------------
 
 import base64
 import getpass
 import json
-import sys
 import tempfile
 from pathlib import Path
-
-
-def check_dependency():
-    try:
-        from garminconnect import Garmin
-        return Garmin
-    except ImportError:
-        print("\nMissing dependency. Please run this first:\n")
-        print("    pip install garminconnect\n")
-        sys.exit(1)
+from garminconnect import Garmin
 
 
 def main():
+    print()
     print("=" * 55)
     print("  Garmin Sleep Leaderboard - Friend Setup")
     print("=" * 55)
@@ -43,8 +100,6 @@ def main():
     print("gives you a token string to send to the leaderboard admin.")
     print("Your password is used once and never saved or sent anywhere.")
     print()
-
-    Garmin = check_dependency()
 
     name = input("What name should appear on the leaderboard? ").strip()
     if not name:
@@ -57,7 +112,7 @@ def main():
 
     print()
     print("Logging in to Garmin Connect...")
-    print("(If you have MFA enabled, you will be prompted for your code.)")
+    print("(If you have MFA enabled you will be prompted for your code.)")
     print()
 
     try:
@@ -69,10 +124,9 @@ def main():
             garmin.login()
             garmin.garth.dump(str(token_dir))
 
-            # Find the token file
+            # Find the saved token file
             token_file = token_dir / "garmin_tokens.json"
             if not token_file.exists():
-                # Fall back to any json file in the folder
                 candidates = list(token_dir.glob("*.json"))
                 if not candidates:
                     print("Could not find saved token file. Login may have failed.")
@@ -88,8 +142,8 @@ def main():
         print("Check your email, password, and MFA code and try again.")
         sys.exit(1)
 
-    # Write to file
-    out_file = Path(f"{name}_garmin_token.txt")
+    # Write output file next to this script
+    out_file = Path(__file__).parent / f"{name}_garmin_token.txt"
     out_file.write_text(f"{name}\n{encoded}\n")
 
     print()
@@ -99,14 +153,14 @@ def main():
     print()
     print(f"Your token has been saved to:  {out_file.name}")
     print()
-    print("Send that file (or its contents) to the leaderboard admin.")
-    print("It contains NO password or email - just a secure session token.")
+    print("Send that file to the leaderboard admin.")
+    print("It contains NO password or email address.")
     print()
-    print("The file contains two lines:")
-    print(f"  Line 1: your leaderboard name  ({name})")
-    print(f"  Line 2: your token string       ({len(encoded)} characters)")
+    print(f"  Line 1: your name    ({name})")
+    print(f"  Line 2: token string ({len(encoded)} characters)")
     print()
-    print("Done. You can delete this script and the .txt file afterwards.")
+    print("You can delete this script and the .txt file afterwards.")
+    print("Nothing was permanently installed on this machine.")
 
 
 if __name__ == "__main__":

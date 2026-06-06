@@ -1,6 +1,7 @@
 # Sleep Leaderboard 😴
 
 A friendly competition tracking nightly Garmin sleep scores, weekly averages, and activity stats across a group of friends.
+
 ---
 
 ## Want to join?
