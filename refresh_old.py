@@ -9,8 +9,6 @@ Does everything in one shot:
   - Fetches today's sleep and activity data
   - Updates local cache files in data/
   - Writes scores.json and activities.json ready to copy to GitHub Pages
-
-No need to run app.py first.
 """
 
 import json
@@ -146,18 +144,13 @@ def build_sleep_payload(name, cache):
     for i in range(HISTORY_DAYS - 1, -1, -1):
         d_str = (today - timedelta(days=i)).isoformat()
         entry = history.get(d_str)
-        # Include full entry so history page can show quality, duration, stages.
-        # Sparkline still works since it only reads d.score.
-        if entry:
-            window.append(entry)
-        else:
-            window.append({"date": d_str, "score": None})
+        window.append({"date": d_str, "score": entry["score"] if entry else None})
     latest = None
     for d in reversed(window):
-        if d.get("score") is not None:
-            latest = d
+        if d["score"] is not None:
+            latest = history[d["date"]]
             break
-    valid = [d["score"] for d in window if d.get("score") is not None]
+    valid = [d["score"] for d in window if d["score"] is not None]
     weekly_avg = round(sum(valid) / len(valid), 1) if valid else None
     return {"name": name, "latest": latest, "weekly_avg": weekly_avg, "history": window}
 
