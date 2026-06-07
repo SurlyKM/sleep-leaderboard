@@ -233,7 +233,33 @@
       "avg_respiration": 13.0,
       "resting_hr": 51,
       "body_battery_change": null
+    },
+    "2026-06-08": {
+      "date": "2026-06-08",
+      "score": 87,
+      "quality": "GOOD",
+      "total": 29760,
+      "total_str": "8h 16m",
+      "deep": 6060,
+      "deep_str": "1h 41m",
+      "deep_pct": 20.4,
+      "light": 17700,
+      "light_str": "4h 55m",
+      "light_pct": 59.5,
+      "rem": 6000,
+      "rem_str": "1h 40m",
+      "rem_pct": 20.2,
+      "awake": 960,
+      "awake_str": "16m",
+      "avg_hr": 57.0,
+      "avg_hrv": null,
+      "hrv_status": null,
+      "avg_stress": 16.0,
+      "avg_spo2": 93.0,
+      "avg_respiration": 13.0,
+      "resting_hr": 51,
+      "body_battery_change": null
     }
   },
-  "fetched_at": "2026-06-07T09:11:44"
+  "fetched_at": "2026-06-08T08:10:44"
 }
