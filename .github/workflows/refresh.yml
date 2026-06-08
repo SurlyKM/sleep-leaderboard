@@ -6,7 +6,8 @@ name: Refresh Sleep Leaderboard
 # use https://crontab.guru to check.
 on:
   schedule:
-    - cron: '7 20 * * *'
+    - cron: '30 7 * * *'
+      timezone: "Australia/Sydney"
   workflow_dispatch:
 
 # Needed so the job can commit the updated JSON + cache back to the repo.
