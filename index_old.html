@@ -80,28 +80,7 @@
     gap: 12px;
     margin-bottom: 6px;
   }
-  .sheep {
-    display: block;
-    flex-shrink: 0;
-    animation: sheepFloat 3.5s ease-in-out infinite alternate;
-  }
-  .sheep .z1, .sheep .z2, .sheep .z3 {
-    transform-box: fill-box;
-    transform-origin: center bottom;
-  }
-  .sheep .z1 { animation: zFloat 2.4s ease-in infinite 0.0s; }
-  .sheep .z2 { animation: zFloat 2.4s ease-in infinite 0.7s; }
-  .sheep .z3 { animation: zFloat 2.4s ease-in infinite 1.4s; }
-
-  @keyframes sheepFloat {
-    from { transform: translateY(0px); }
-    to   { transform: translateY(-5px); }
-  }
-  @keyframes zFloat {
-    0%   { transform: translateY(0px);  opacity: 1;   }
-    75%  { transform: translateY(-7px); opacity: 0;   }
-    100% { transform: translateY(-7px); opacity: 0;   }
-  }
+  .sheep { display: block; flex-shrink: 0; }
   h1 {
     font-size: 26px;
     font-weight: 700;
@@ -420,9 +399,9 @@
         <rect x="28" y="31" width="3" height="8" rx="1.5" fill="#4a5568"/>
         <rect x="33" y="30" width="3" height="9" rx="1.5" fill="#4a5568"/>
         <!-- zzz -->
-        <text class="z1" x="44" y="10" font-family="DM Sans, sans-serif" font-size="6" font-weight="700" fill="#4fa8d0" opacity="0.8">z</text>
-        <text class="z2" x="46" y="5" font-family="DM Sans, sans-serif" font-size="7.5" font-weight="700" fill="#4fa8d0" opacity="0.8">z</text>
-        <text class="z3" x="49" y="1" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#4fa8d0" opacity="0.8">z</text>
+        <text x="44" y="10" font-family="DM Sans, sans-serif" font-size="6" font-weight="700" fill="#4fa8d0" opacity="0.7">z</text>
+        <text x="46" y="5" font-family="DM Sans, sans-serif" font-size="7.5" font-weight="700" fill="#4fa8d0" opacity="0.5">z</text>
+        <text x="49" y="1" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#4fa8d0" opacity="0.3">z</text>
       </svg>
     </div>
     <div class="updated" id="updatedAt">Loading...</div>
