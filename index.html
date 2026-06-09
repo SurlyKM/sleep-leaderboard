@@ -447,10 +447,11 @@
     <div class="updated" id="updatedAt">Loading...</div>
   </header>
 
-  <div id="championWrap"></div>
-
   <div class="section-label">Last night</div>
   <div id="board" class="leaderboard"></div>
+
+  <div class="section-label" id="awardsLabel" style="margin-top:32px;display:none">This week</div>
+  <div id="championWrap"></div>
 
   <footer>Garmin Connect &middot; data updated manually</footer>
 </div>
@@ -626,8 +627,11 @@ async function load() {
     document.getElementById('updatedAt').textContent =
       data.updated_at ? `Updated ${data.updated_at.replace('T', ' ')}` : '';
 
-    document.getElementById('championWrap').innerHTML =
-      renderChampion(data.users || []) + renderWoodenSpoon(data.wooden_spoon || null);
+    const awardsHTML = renderChampion(data.users || []) + renderWoodenSpoon(data.wooden_spoon || null);
+    document.getElementById('championWrap').innerHTML = awardsHTML;
+    if (awardsHTML.trim()) {
+      document.getElementById('awardsLabel').style.display = '';
+    }
     document.getElementById('board').innerHTML = (data.users || []).map(renderRow).join('');
 
     document.querySelectorAll('.row[data-name]').forEach(row => {
