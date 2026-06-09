@@ -119,7 +119,7 @@ def fetch_sleep(client, name, today):
 
     today_str = today.isoformat()
     target_dates = [(today - timedelta(days=i)).isoformat() for i in range(HISTORY_DAYS)]
-    to_fetch = [d for d in target_dates if d == today_str or d not in history or history.get(d) is None]
+    to_fetch = [d for d in target_dates if d == today_str or d not in history]
 
     for d_str in to_fetch:
         try:

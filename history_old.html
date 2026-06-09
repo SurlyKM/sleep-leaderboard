@@ -212,10 +212,7 @@ const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
 function fmtDate(dateStr) {
-  // Garmin uses the wake date as calendarDate, so shift back 1 day
-  // to show the night you went to sleep (e.g. "Mon 8 Jun" not "Tue 9 Jun").
   const d = new Date(dateStr + 'T00:00:00');
-  d.setDate(d.getDate() - 1);
   return {
     dow: DAYS[d.getDay()],
     short: `${d.getDate()} ${MONTHS[d.getMonth()]}`,

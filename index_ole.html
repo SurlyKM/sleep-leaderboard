@@ -367,25 +367,6 @@
   .legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--muted); }
   .legend-dot { width: 8px; height: 8px; border-radius: 2px; }
 
-  /* Sync pending indicator */
-  .sync-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--fair);
-    background: rgba(232,197,71,0.08);
-    border: 1px solid rgba(232,197,71,0.2);
-    border-radius: 4px;
-    padding: 2px 6px;
-    margin-top: 3px;
-  }
-  .score.s-stale { color: var(--dim); }
-
   /* Empty / no data */
   .no-data { color: var(--dim); font-size: 13px; }
 
@@ -459,16 +440,6 @@
 function scoreClass(q) {
   const map = { EXCELLENT: 's-excellent', GOOD: 's-good', FAIR: 's-fair', POOR: 's-poor' };
   return map[q] || '';
-}
-
-function sleepNightLabel(dateStr) {
-  // Garmin stamps sleep with the wake date; subtract 1 day to show
-  // the night you went to sleep ("Mon 8 Jun" instead of "Tue 9 Jun").
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const days   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const d = new Date(dateStr + 'T00:00:00');
-  d.setDate(d.getDate() - 1);
-  return `${days[d.getDay()]} ${d.getDate()} ${months[d.getMonth()]}`;
 }
 
 function sparklineSVG(history) {
@@ -545,11 +516,6 @@ function renderChampion(users) {
 function renderRow(u, i) {
   const latest = u.latest;
 
-  // Check if the most recent entry in the window has no score yet
-  const history = u.history || [];
-  const newestEntry = history[history.length - 1];
-  const awaitingSync = !newestEntry || newestEntry.score === null;
-
   if (!latest) {
     return `
       <div class="row">
@@ -558,7 +524,7 @@ function renderRow(u, i) {
           <div class="name">${u.name}</div>
           <div class="date-line no-data">No data in last 7 days</div>
         </div>
-        <div class="sparkline-cell">${sparklineSVG(history)}<span class="sparkline-label">7d</span></div>
+        <div class="sparkline-cell">${sparklineSVG(u.history || [])}<span class="sparkline-label">7d</span></div>
         <div class="score-cell"><div class="score s-none">--</div></div>
       </div>`;
   }
@@ -580,17 +546,14 @@ function renderRow(u, i) {
       <div class="rank ${rankClass(i)}">${rankLabel(i)}</div>
       <div class="name-cell">
         <div class="name">${u.name}</div>
-        ${awaitingSync
-          ? '<div class="date-line"><span class="sync-badge">⏳ Not synced yet</span></div>'
-          : `<div class="date-line">${sleepNightLabel(latest.date)} &middot; ${latest.total_str}</div>`
-        }
+        <div class="date-line">${latest.date} &middot; ${latest.total_str}</div>
       </div>
       <div class="sparkline-cell">
         ${sparklineSVG(u.history || [])}
         <span class="sparkline-label">7d</span>
       </div>
       <div class="score-cell">
-        <div class="score ${awaitingSync ? 's-stale' : scoreClass(latest.quality)}">${latest.score}</div>
+        <div class="score ${scoreClass(latest.quality)}">${latest.score}</div>
         <div class="quality ${latest.quality || ''}">${latest.quality || ''}</div>
         ${weekly}
       </div>
