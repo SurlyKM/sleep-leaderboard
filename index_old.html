@@ -210,50 +210,6 @@
     margin-top: 2px;
   }
 
-  /* Streak card */
-  .streak-card {
-    background: linear-gradient(135deg, rgba(79,168,208,0.07) 0%, rgba(79,168,208,0.02) 100%);
-    border: 1px solid rgba(79,168,208,0.22);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .streak-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
-  .streak-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 3px;
-    font-family: 'DM Mono', monospace;
-  }
-  .streak-name {
-    font-size: 20px;
-    font-weight: 700;
-    text-transform: capitalize;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-  .streak-right { margin-left: auto; text-align: right; flex-shrink: 0; }
-  .streak-days {
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1;
-    font-family: 'DM Mono', monospace;
-  }
-  .streak-sub {
-    font-size: 10px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 2px;
-  }
-
   /* Section label */
   .section-label {
     font-size: 10px;
@@ -569,22 +525,6 @@ function renderWoodenSpoon(ws) {
     </div>`;
 }
 
-function renderStreak(st) {
-  if (!st) return '';
-  return `
-    <div class="streak-card">
-      <div class="streak-icon">🔥</div>
-      <div>
-        <div class="streak-label">Longest streak &middot; 30 days</div>
-        <div class="streak-name">${st.name.replace(/_/g, ' ')}</div>
-      </div>
-      <div class="streak-right">
-        <div class="streak-days">${st.days}</div>
-        <div class="streak-sub">nights at 1st</div>
-      </div>
-    </div>`;
-}
-
 function renderChampion(users) {
   const withAvg = users.filter(u => u.weekly_avg !== null && u.weekly_avg !== undefined);
   if (withAvg.length === 0) return '';
@@ -603,8 +543,7 @@ function renderChampion(users) {
     </div>`;
 }
 
-function renderRow(u) {
-  const i = u._rank;
+function renderRow(u, i) {
   const latest = u.latest;
 
   // Check if the most recent entry in the window has no score yet
@@ -688,25 +627,12 @@ async function load() {
     document.getElementById('updatedAt').textContent =
       data.updated_at ? `Updated ${data.updated_at.replace('T', ' ')}` : '';
 
-    const awardsHTML = renderChampion(data.users || []) + renderWoodenSpoon(data.wooden_spoon || null) + renderStreak(data.longest_streak || null);
+    const awardsHTML = renderChampion(data.users || []) + renderWoodenSpoon(data.wooden_spoon || null);
     document.getElementById('championWrap').innerHTML = awardsHTML;
     if (awardsHTML.trim()) {
       document.getElementById('awardsLabel').style.display = '';
     }
-    // Competition ranking: tied scores share a rank (1st, 1st, 3rd)
-    const users = data.users || [];
-    let lastScore = null, lastRank = 0;
-    users.forEach((u, i) => {
-      const s = u.latest ? u.latest.score : null;
-      if (s !== null && s === lastScore) {
-        u._rank = lastRank;
-      } else {
-        u._rank = i;
-        lastRank = i;
-        lastScore = s;
-      }
-    });
-    document.getElementById('board').innerHTML = users.map(renderRow).join('');
+    document.getElementById('board').innerHTML = (data.users || []).map(renderRow).join('');
 
     document.querySelectorAll('.row[data-name]').forEach(row => {
       row.addEventListener('click', () => row.classList.toggle('expanded'));

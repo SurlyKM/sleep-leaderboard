@@ -328,48 +328,7 @@ def main():
     if wooden_spoon:
         print(f"  Wooden spoon: {wooden_spoon['name']} scored {wooden_spoon['score']} on {wooden_spoon['date']}")
 
-    # Longest streak: most consecutive nights as SOLE top scorer in the last
-    # 30 days. A tie for first or a day with no data breaks every streak.
-    all_histories = {}
-    for user_dir in sorted(TOKENS_DIR.iterdir()):
-        if not user_dir.is_dir():
-            continue
-        cache = load_json(DATA_DIR / f"{user_dir.name}.json", {"history": {}})
-        all_histories[user_dir.name] = cache.get("history", {})
-
-    longest_streak = None
-    current_name, current_len = None, 0
-    best_name, best_len, best_end = None, 0, None
-    for i in range(29, -1, -1):
-        d_str = (today - timedelta(days=i)).isoformat()
-        day_scores = {}
-        for uname, hist in all_histories.items():
-            entry = hist.get(d_str)
-            if entry and entry.get("score") is not None:
-                day_scores[uname] = entry["score"]
-
-        winner = None
-        if day_scores:
-            top = max(day_scores.values())
-            leaders = [u for u, s in day_scores.items() if s == top]
-            if len(leaders) == 1:
-                winner = leaders[0]
-
-        if winner and winner == current_name:
-            current_len += 1
-        elif winner:
-            current_name, current_len = winner, 1
-        else:
-            current_name, current_len = None, 0
-
-        if current_len > best_len:
-            best_name, best_len, best_end = current_name, current_len, d_str
-
-    if best_name and best_len >= 2:
-        longest_streak = {"name": best_name, "days": best_len, "end_date": best_end}
-        print(f"  Longest streak: {best_name} held 1st for {best_len} nights")
-
-    save_json(SCORES_OUT, {"users": sleep_users, "wooden_spoon": wooden_spoon, "longest_streak": longest_streak, "updated_at": now})
+    save_json(SCORES_OUT, {"users": sleep_users, "wooden_spoon": wooden_spoon, "updated_at": now})
     save_json(ACTIVITIES_OUT, {"users": activity_users, "updated_at": now})
 
     print(f"\nDone.")
