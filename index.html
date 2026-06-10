@@ -97,6 +97,23 @@
     from { transform: translateY(0px); }
     to   { transform: translateY(-5px); }
   }
+  .spoon-svg .sz {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    opacity: 0;
+    animation: zFloat 2.4s ease-in infinite;
+  }
+  .spoon-svg .sz2 { animation-delay: 0.7s; }
+  .spoon-svg .sz3 { animation-delay: 1.4s; }
+  .spoon-rock {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: spoonRock 3.4s ease-in-out infinite alternate;
+  }
+  @keyframes spoonRock {
+    from { transform: rotate(-3deg); }
+    to   { transform: rotate(3deg); }
+  }
   @keyframes zFloat {
     0%   { transform: translateY(0px);  opacity: 1;   }
     75%  { transform: translateY(-7px); opacity: 0;   }
@@ -572,8 +589,11 @@
   <div class="section-label">Last night</div>
   <div id="board" class="leaderboard"></div>
 
-  <div class="section-label" id="awardsLabel" style="margin-top:32px;display:none">This week</div>
-  <div id="championWrap"></div>
+  <div class="section-label" id="weekLabel" style="margin-top:32px;display:none">This week</div>
+  <div id="weekWrap"></div>
+
+  <div class="section-label" id="monthLabel" style="margin-top:32px;display:none">This month</div>
+  <div id="monthWrap"></div>
 
   <footer>Garmin Connect &middot; data updated manually</footer>
 </div>
@@ -635,7 +655,20 @@ function renderWoodenSpoon(ws) {
   if (!ws) return '';
   return `
     <div class="wooden-spoon">
-      <div class="wooden-spoon-icon">🥄</div>
+      <div class="wooden-spoon-icon"><svg class="spoon-svg" width="44" height="44" viewBox="0 0 44 44" aria-label="sleeping wooden spoon">
+        <g class="spoon-rock">
+          <ellipse cx="14" cy="13" rx="8" ry="9.5" fill="#a06a38" transform="rotate(-38 14 13)"/>
+          <ellipse cx="13" cy="12" rx="4.5" ry="6" fill="#7d4f26" transform="rotate(-38 13 12)"/>
+          <rect x="17" y="17" width="5" height="22" rx="2.5" fill="#a06a38" transform="rotate(-38 19 18)"/>
+          <path d="M 9 8 Q 11 10 10 14" stroke="#c08850" stroke-width="1.1" fill="none" opacity="0.6"/>
+          <path d="M 9.5 14.5 q 1.6 1.1 3.2 0" stroke="#4a3015" stroke-width="1.1" fill="none" stroke-linecap="round" transform="rotate(-38 11 14.5)"/>
+          <line x1="8" y1="11" x2="10.5" y2="11" stroke="#4a3015" stroke-width="1.1" stroke-linecap="round" transform="rotate(-30 9 11)"/>
+          <line x1="13.5" y1="9" x2="16" y2="9" stroke="#4a3015" stroke-width="1.1" stroke-linecap="round" transform="rotate(-30 15 9)"/>
+        </g>
+        <text class="sz" x="28" y="14" font-family="DM Sans, sans-serif" font-size="7" font-weight="700" fill="#c07840">z</text>
+        <text class="sz sz2" x="32" y="9" font-family="DM Sans, sans-serif" font-size="8.5" font-weight="700" fill="#c07840">z</text>
+        <text class="sz sz3" x="36" y="5" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#c07840">z</text>
+      </svg></div>
       <div>
         <div class="wooden-spoon-label">Wooden spoon &middot; 30-day low</div>
         <div class="wooden-spoon-name">${ws.name}</div>
@@ -682,7 +715,7 @@ function renderNightsWon(nw) {
     : '';
   return `
     <div class="nights-won">
-      <div class="nights-won-title">Nights won &middot; last 30 days</div>
+      <div class="nights-won-title">⚔️ Nights won &middot; last 30 days</div>
       ${rows}
       ${skipped}
     </div>`;
@@ -872,9 +905,12 @@ function renderForGroup() {
     streak = DATA.group_awards[CURRENT_GROUP].longest_streak || null;
     nightsWon = DATA.group_awards[CURRENT_GROUP].nights_won || null;
   }
-  const awardsHTML = renderChampion(users) + renderWoodenSpoon(spoon) + renderStreak(streak) + renderNightsWon(nightsWon);
-  document.getElementById('championWrap').innerHTML = awardsHTML;
-  document.getElementById('awardsLabel').style.display = awardsHTML.trim() ? '' : 'none';
+  const weekHTML = renderChampion(users);
+  const monthHTML = renderWoodenSpoon(spoon) + renderStreak(streak) + renderNightsWon(nightsWon);
+  document.getElementById('weekWrap').innerHTML = weekHTML;
+  document.getElementById('monthWrap').innerHTML = monthHTML;
+  document.getElementById('weekLabel').style.display = weekHTML.trim() ? '' : 'none';
+  document.getElementById('monthLabel').style.display = monthHTML.trim() ? '' : 'none';
 
   document.querySelectorAll('.row[data-name]').forEach(row => {
     row.addEventListener('click', () => row.classList.toggle('expanded'));

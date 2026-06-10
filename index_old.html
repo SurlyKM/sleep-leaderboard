@@ -116,6 +116,26 @@
     margin-top: 6px;
   }
 
+  /* Group switcher */
+  .group-switch { display: none; flex-wrap: wrap; gap: 6px; margin: -16px 0 24px; }
+  .group-switch.visible { display: flex; }
+  .group-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    transition: all 0.12s;
+  }
+  .group-pill:hover { border-color: var(--border-bright); color: var(--text); }
+  .group-pill.active { background: var(--accent); border-color: var(--accent); color: #08111a; }
+
   /* Champion banner */
   .champion {
     background: linear-gradient(135deg, rgba(232,197,71,0.08) 0%, rgba(232,197,71,0.03) 100%);
@@ -254,6 +274,53 @@
     margin-top: 2px;
   }
 
+  /* Nights won */
+  .nights-won {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .nights-won-title {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    font-family: 'DM Mono', monospace;
+  }
+  .nw-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .nw-row:last-of-type { margin-bottom: 0; }
+  .nw-name {
+    width: 92px;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nw-track { flex: 1; height: 22px; background: var(--surface); border-radius: 6px; overflow: hidden; }
+  .nw-fill { height: 100%; border-radius: 6px; transition: width 0.4s ease; }
+  .nw-count {
+    width: 70px;
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .nw-count span { font-size: 10px; color: var(--muted); font-weight: 400; }
+  .nw-foot {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+    margin-top: 14px;
+  }
+
   /* Section label */
   .section-label {
     font-size: 10px;
@@ -358,6 +425,15 @@
   .quality.GOOD { color: var(--good); }
   .quality.FAIR { color: var(--fair); }
   .quality.POOR { color: var(--poor); }
+  .delta {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+  .delta.up   { color: var(--excellent); }
+  .delta.down { color: var(--poor); }
+  .delta.flat { color: var(--dim); }
   .weekly-avg { font-size: 10px; color: var(--muted); margin-top: 5px; }
   .weekly-avg strong { color: var(--text); }
 
@@ -491,6 +567,8 @@
     <div class="updated" id="updatedAt">Loading...</div>
   </header>
 
+  <div id="groupSwitch" class="group-switch"></div>
+
   <div class="section-label">Last night</div>
   <div id="board" class="leaderboard"></div>
 
@@ -585,6 +663,31 @@ function renderStreak(st) {
     </div>`;
 }
 
+function renderNightsWon(nw) {
+  if (!nw || !nw.counts || !nw.counts.length) return '';
+  const palette = ['#3dd68c', '#4fa8d0', '#a78bfa', '#e8c547', '#f0997b', '#ed93b1'];
+  const max = Math.max(...nw.counts.map(c => c.nights), 1);
+  const rows = nw.counts.map((c, i) => {
+    const pct = Math.round((c.nights / max) * 100);
+    const color = palette[i % palette.length];
+    return `
+      <div class="nw-row">
+        <div class="nw-name">${c.name.replace(/_/g, ' ')}</div>
+        <div class="nw-track"><div class="nw-fill" style="width:${pct}%;background:${color}"></div></div>
+        <div class="nw-count" style="color:${color}">${c.nights} <span>night${c.nights === 1 ? '' : 's'}</span></div>
+      </div>`;
+  }).join('');
+  const skipped = nw.no_winner
+    ? `<div class="nw-foot">${nw.no_winner} night${nw.no_winner === 1 ? '' : 's'} tied &middot; ties count for nobody</div>`
+    : '';
+  return `
+    <div class="nights-won">
+      <div class="nights-won-title">Nights won &middot; last 30 days</div>
+      ${rows}
+      ${skipped}
+    </div>`;
+}
+
 function renderChampion(users) {
   const withAvg = users.filter(u => u.weekly_avg !== null && u.weekly_avg !== undefined);
   if (withAvg.length === 0) return '';
@@ -637,6 +740,17 @@ function renderRow(u) {
     ? `<div class="weekly-avg">7d avg <strong>${u.weekly_avg}</strong></div>`
     : '';
 
+  // Movement vs previous night: find the scored entry before latest's date
+  let deltaHTML = '';
+  const scored = history.filter(d => d.score !== null && d.date <= latest.date);
+  if (scored.length >= 2) {
+    const prev = scored[scored.length - 2];
+    const diff = latest.score - prev.score;
+    if (diff > 0)      deltaHTML = `<div class="delta up">&#9650; ${diff}</div>`;
+    else if (diff < 0) deltaHTML = `<div class="delta down">&#9660; ${Math.abs(diff)}</div>`;
+    else               deltaHTML = `<div class="delta flat">&ndash; 0</div>`;
+  }
+
   return `
     <div class="row rank-${i+1}" data-name="${u.name}">
       <div class="rank ${rankClass(i)}">${rankLabel(i)}</div>
@@ -654,6 +768,7 @@ function renderRow(u) {
       <div class="score-cell">
         <div class="score ${awaitingSync ? 's-stale' : scoreClass(latest.quality)}">${latest.score}</div>
         <div class="quality ${latest.quality || ''}">${latest.quality || ''}</div>
+        ${deltaHTML}
         ${weekly}
       </div>
       <div class="stages-bar">
@@ -679,38 +794,104 @@ function renderRow(u) {
     </div>`;
 }
 
+
+// ---- Group switcher (shared pattern) ----
+let GROUPS = {};
+let CURRENT_GROUP = 'all';
+
+function resolveGroup() {
+  const h = location.hash.replace('#', '');
+  if (h && (h === 'all' || GROUPS[h])) return h;
+  try {
+    const saved = localStorage.getItem('sleepGroup');
+    if (saved && (saved === 'all' || GROUPS[saved])) return saved;
+  } catch (e) {}
+  return 'all';
+}
+
+function selectGroup(g) {
+  CURRENT_GROUP = g;
+  try { localStorage.setItem('sleepGroup', g); } catch (e) {}
+  history.replaceState(null, '', g === 'all' ? location.pathname : '#' + g);
+  document.querySelectorAll('.group-pill').forEach(p =>
+    p.classList.toggle('active', p.dataset.group === g));
+  renderForGroup();
+}
+
+function buildSwitcher(groups) {
+  GROUPS = groups || {};
+  const names = Object.keys(GROUPS).filter(g => (GROUPS[g] || []).length > 0);
+  const el = document.getElementById('groupSwitch');
+  if (!el || names.length === 0) { CURRENT_GROUP = 'all'; return; }
+  el.classList.add('visible');
+  el.innerHTML = ['all', ...names].map(g =>
+    `<button class="group-pill" data-group="${g}">${g === 'all' ? 'All' : g}</button>`
+  ).join('');
+  el.querySelectorAll('.group-pill').forEach(p =>
+    p.addEventListener('click', () => selectGroup(p.dataset.group)));
+  CURRENT_GROUP = resolveGroup();
+  el.querySelectorAll('.group-pill').forEach(p =>
+    p.classList.toggle('active', p.dataset.group === CURRENT_GROUP));
+}
+
+function filterByGroup(users) {
+  if (CURRENT_GROUP === 'all') return users;
+  const members = GROUPS[CURRENT_GROUP] || [];
+  return users.filter(u => members.includes(u.name));
+}
+
+let DATA = null;
+
+function renderForGroup() {
+  if (!DATA) return;
+  let users = filterByGroup(DATA.users || []);
+
+  // Competition ranking within the visible set: ties share a rank
+  let lastScore = null, lastRank = 0;
+  users.forEach((u, i) => {
+    const s = u.latest ? u.latest.score : null;
+    if (s !== null && s === lastScore) {
+      u._rank = lastRank;
+    } else {
+      u._rank = i;
+      lastRank = i;
+      lastScore = s;
+    }
+  });
+
+  document.getElementById('board').innerHTML = users.length
+    ? users.map(renderRow).join('')
+    : `<div style="color:var(--muted);font-size:13px;padding:24px 0">No members in this group yet.</div>`;
+
+  // Awards: per-group from server when a group is selected, else overall
+  let spoon = DATA.wooden_spoon || null;
+  let streak = DATA.longest_streak || null;
+  let nightsWon = DATA.nights_won || null;
+  if (CURRENT_GROUP !== 'all' && DATA.group_awards && DATA.group_awards[CURRENT_GROUP]) {
+    spoon = DATA.group_awards[CURRENT_GROUP].wooden_spoon || null;
+    streak = DATA.group_awards[CURRENT_GROUP].longest_streak || null;
+    nightsWon = DATA.group_awards[CURRENT_GROUP].nights_won || null;
+  }
+  const awardsHTML = renderChampion(users) + renderWoodenSpoon(spoon) + renderStreak(streak) + renderNightsWon(nightsWon);
+  document.getElementById('championWrap').innerHTML = awardsHTML;
+  document.getElementById('awardsLabel').style.display = awardsHTML.trim() ? '' : 'none';
+
+  document.querySelectorAll('.row[data-name]').forEach(row => {
+    row.addEventListener('click', () => row.classList.toggle('expanded'));
+  });
+}
+
 async function load() {
   try {
     const res = await fetch('scores.json');
     if (!res.ok) throw new Error(`scores.json not found (${res.status})`);
-    const data = await res.json();
+    DATA = await res.json();
 
     document.getElementById('updatedAt').textContent =
-      data.updated_at ? `Updated ${data.updated_at.replace('T', ' ')}` : '';
+      DATA.updated_at ? `Updated ${DATA.updated_at.replace('T', ' ')}` : '';
 
-    const awardsHTML = renderChampion(data.users || []) + renderWoodenSpoon(data.wooden_spoon || null) + renderStreak(data.longest_streak || null);
-    document.getElementById('championWrap').innerHTML = awardsHTML;
-    if (awardsHTML.trim()) {
-      document.getElementById('awardsLabel').style.display = '';
-    }
-    // Competition ranking: tied scores share a rank (1st, 1st, 3rd)
-    const users = data.users || [];
-    let lastScore = null, lastRank = 0;
-    users.forEach((u, i) => {
-      const s = u.latest ? u.latest.score : null;
-      if (s !== null && s === lastScore) {
-        u._rank = lastRank;
-      } else {
-        u._rank = i;
-        lastRank = i;
-        lastScore = s;
-      }
-    });
-    document.getElementById('board').innerHTML = users.map(renderRow).join('');
-
-    document.querySelectorAll('.row[data-name]').forEach(row => {
-      row.addEventListener('click', () => row.classList.toggle('expanded'));
-    });
+    buildSwitcher(DATA.groups);
+    renderForGroup();
   } catch (e) {
     document.getElementById('board').innerHTML =
       `<div style="color:#5a7080;font-size:13px;padding:24px 0">Could not load scores.json: ${e.message}</div>`;
