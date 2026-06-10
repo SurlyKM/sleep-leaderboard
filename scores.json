@@ -453,7 +453,7 @@
         "avg_stress": 44.0,
         "avg_spo2": null,
         "avg_respiration": 16.0,
-        "resting_hr": 53,
+        "resting_hr": 52,
         "body_battery_change": null
       },
       "weekly_avg": 65.0,
@@ -637,7 +637,7 @@
           "avg_stress": 44.0,
           "avg_spo2": null,
           "avg_respiration": 16.0,
-          "resting_hr": 53,
+          "resting_hr": 52,
           "body_battery_change": null
         }
       ]
@@ -677,7 +677,7 @@
   "display_names": {
     "Kyle": "Kyle \ud83d\udc68\ud83c\udffb\u200d\ud83d\udcbb",
     "Samgria": "Samgria \ud83c\udf77",
-    "flatland_enthusiast": "Flatland Enthusiast"
+    "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f"
   },
-  "updated_at": "2026-06-10T16:45:34"
+  "updated_at": "2026-06-10T21:27:23"
 }
