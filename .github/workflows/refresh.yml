@@ -6,7 +6,9 @@ name: Refresh Sleep Leaderboard
 # use https://crontab.guru to check.
 on:
   schedule:
-    - cron: '30 7 * * *'
+    - cron: '30 6 * * *'
+      timezone: "Australia/Sydney"
+    - cron: '30 9 * * *'
       timezone: "Australia/Sydney"
   workflow_dispatch:
 
