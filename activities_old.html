@@ -82,26 +82,6 @@
     margin-top: 3px;
   }
 
-  /* Group switcher */
-  .group-switch { display: none; flex-wrap: wrap; gap: 6px; margin: -16px 0 24px; }
-  .group-switch.visible { display: flex; }
-  .group-pill {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    padding: 5px 12px;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    transition: all 0.12s;
-  }
-  .group-pill:hover { border-color: var(--border-bright); color: var(--text); }
-  .group-pill.active { background: var(--accent); border-color: var(--accent); color: #08111a; }
-
   /* User cards */
   .cards { display: flex; flex-direction: column; gap: 16px; }
 
@@ -213,8 +193,6 @@
     <div class="period" id="period"></div>
   </header>
 
-  <div id="groupSwitch" class="group-switch"></div>
-
   <div id="cards" class="cards"></div>
 
   <footer>Garmin Connect &middot; data updated manually</footer>
@@ -229,11 +207,6 @@ function fmt(val, decimals = 1) {
 function sessionLabel(n, type) {
   if (!n) return `no ${type}s`;
   return `${n} session${n === 1 ? '' : 's'}`;
-}
-
-function dn(name) {
-  const m = (DATA && DATA.display_names) || {};
-  return m[name] || name.replace(/_/g, ' ');
 }
 
 function renderCard(u) {
@@ -265,7 +238,7 @@ function renderCard(u) {
   return `
     <div class="card">
       <div class="card-header">
-        <div class="card-name">${dn(u.name)}</div>
+        <div class="card-name">${u.name}</div>
       </div>
       <div class="stats-grid">
         ${statBlock('👣', 'Steps', stepsDisplay, '7-day total', avgDisplay, 'steps')}
@@ -284,74 +257,24 @@ function getPeriodLabel() {
   return `${fmt(start)} – ${fmt(today)}`;
 }
 
-
-// ---- Group switcher (shared pattern) ----
-let GROUPS = {};
-let CURRENT_GROUP = 'all';
-
-function resolveGroup() {
-  const h = location.hash.replace('#', '');
-  if (h && (h === 'all' || GROUPS[h])) return h;
-  try {
-    const saved = localStorage.getItem('sleepGroup');
-    if (saved && (saved === 'all' || GROUPS[saved])) return saved;
-  } catch (e) {}
-  return 'all';
-}
-
-function selectGroup(g) {
-  CURRENT_GROUP = g;
-  try { localStorage.setItem('sleepGroup', g); } catch (e) {}
-  history.replaceState(null, '', g === 'all' ? location.pathname : '#' + g);
-  document.querySelectorAll('.group-pill').forEach(p =>
-    p.classList.toggle('active', p.dataset.group === g));
-  renderForGroup();
-}
-
-function buildSwitcher(groups) {
-  GROUPS = groups || {};
-  const names = Object.keys(GROUPS).filter(g => (GROUPS[g] || []).length > 0);
-  const el = document.getElementById('groupSwitch');
-  if (!el || names.length === 0) { CURRENT_GROUP = 'all'; return; }
-  el.classList.add('visible');
-  el.innerHTML = ['all', ...names].map(g =>
-    `<button class="group-pill" data-group="${g}">${g === 'all' ? 'All' : g}</button>`
-  ).join('');
-  el.querySelectorAll('.group-pill').forEach(p =>
-    p.addEventListener('click', () => selectGroup(p.dataset.group)));
-  CURRENT_GROUP = resolveGroup();
-  el.querySelectorAll('.group-pill').forEach(p =>
-    p.classList.toggle('active', p.dataset.group === CURRENT_GROUP));
-}
-
-function filterByGroup(users) {
-  if (CURRENT_GROUP === 'all') return users;
-  const members = GROUPS[CURRENT_GROUP] || [];
-  return users.filter(u => members.includes(u.name));
-}
-
-let DATA = null;
-
-function renderForGroup() {
-  if (!DATA) return;
-  const users = filterByGroup(DATA.users || []);
-  document.getElementById('cards').innerHTML = users.length
-    ? users.map(renderCard).join('')
-    : `<div style="color:var(--muted);font-size:13px;padding:24px 0">No members in this group yet.</div>`;
-}
-
 async function load() {
   try {
     const res = await fetch('activities.json');
     if (!res.ok) throw new Error(`activities.json not found (${res.status})`);
-    DATA = await res.json();
+    const data = await res.json();
 
     document.getElementById('updatedAt').textContent =
-      DATA.updated_at ? `Updated ${DATA.updated_at.replace('T', ' ')}` : '';
+      data.updated_at ? `Updated ${data.updated_at.replace('T', ' ')}` : '';
     document.getElementById('period').textContent = getPeriodLabel();
 
-    buildSwitcher(DATA.groups);
-    renderForGroup();
+    const users = data.users || [];
+    if (users.length === 0) {
+      document.getElementById('cards').innerHTML =
+        `<div style="color:var(--muted);font-size:13px;padding:24px 0">No activity data yet.</div>`;
+      return;
+    }
+
+    document.getElementById('cards').innerHTML = users.map(renderCard).join('');
   } catch (e) {
     document.getElementById('cards').innerHTML =
       `<div style="color:var(--muted);font-size:13px;padding:24px 0">Could not load activities.json: ${e.message}</div>`;

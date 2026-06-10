@@ -604,6 +604,11 @@ function scoreClass(q) {
   return map[q] || '';
 }
 
+function dn(name) {
+  const m = (DATA && DATA.display_names) || {};
+  return m[name] || name.replace(/_/g, ' ');
+}
+
 function sleepNightLabel(dateStr) {
   // Garmin stamps sleep with the wake date; subtract 1 day to show
   // the night you went to sleep ("Mon 8 Jun" instead of "Tue 9 Jun").
@@ -671,7 +676,7 @@ function renderWoodenSpoon(ws) {
       </svg></div>
       <div>
         <div class="wooden-spoon-label">Wooden spoon &middot; 30-day low</div>
-        <div class="wooden-spoon-name">${ws.name}</div>
+        <div class="wooden-spoon-name">${dn(ws.name)}</div>
       </div>
       <div class="wooden-spoon-right">
         <div class="wooden-spoon-score">${ws.score}</div>
@@ -687,7 +692,7 @@ function renderStreak(st) {
       <div class="streak-icon">🔥</div>
       <div>
         <div class="streak-label">Longest streak &middot; 30 days</div>
-        <div class="streak-name">${st.name.replace(/_/g, ' ')}</div>
+        <div class="streak-name">${dn(st.name)}</div>
       </div>
       <div class="streak-right">
         <div class="streak-days">${st.days}</div>
@@ -705,7 +710,7 @@ function renderNightsWon(nw) {
     const color = palette[i % palette.length];
     return `
       <div class="nw-row">
-        <div class="nw-name">${c.name.replace(/_/g, ' ')}</div>
+        <div class="nw-name">${dn(c.name)}</div>
         <div class="nw-track"><div class="nw-fill" style="width:${pct}%;background:${color}"></div></div>
         <div class="nw-count" style="color:${color}">${c.nights} <span>night${c.nights === 1 ? '' : 's'}</span></div>
       </div>`;
@@ -730,7 +735,7 @@ function renderChampion(users) {
       <div class="champion-icon">🏆</div>
       <div>
         <div class="champion-label">7-day champion</div>
-        <div class="champion-name">${champ.name}</div>
+        <div class="champion-name">${dn(champ.name)}</div>
       </div>
       <div class="champion-avg">
         <div class="champion-avg-num">${champ.weekly_avg}</div>
@@ -753,7 +758,7 @@ function renderRow(u) {
       <div class="row">
         <div class="rank ${rankClass(i)}">${rankLabel(i)}</div>
         <div class="name-cell">
-          <div class="name">${u.name}</div>
+          <div class="name">${dn(u.name)}</div>
           <div class="date-line no-data">No data in last 7 days</div>
         </div>
         <div class="sparkline-cell">${sparklineSVG(history)}<span class="sparkline-label">7d</span></div>
@@ -788,7 +793,7 @@ function renderRow(u) {
     <div class="row rank-${i+1}" data-name="${u.name}">
       <div class="rank ${rankClass(i)}">${rankLabel(i)}</div>
       <div class="name-cell">
-        <div class="name">${u.name}</div>
+        <div class="name">${dn(u.name)}</div>
         ${awaitingSync
           ? '<div class="date-line"><span class="sync-badge">⏳ Not synced yet</span></div>'
           : `<div class="date-line">${sleepNightLabel(latest.date)} &middot; ${latest.total_str}</div>`

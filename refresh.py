@@ -396,6 +396,9 @@ def main():
         cache = load_json(DATA_DIR / f"{user_dir.name}.json", {"history": {}})
         all_histories[user_dir.name] = cache.get("history", {})
 
+    # Optional names.json: {"Kyle": "Sleep Lord 3000", ...} for display names
+    display_names = load_json(ROOT / "names.json", {})
+
     # Optional groups.json: {"groupA": ["Kyle", ...], "groupB": [...]}
     groups = load_json(ROOT / "groups.json", {})
     if groups:
@@ -430,9 +433,10 @@ def main():
         "nights_won": nights_won,
         "groups": groups,
         "group_awards": group_awards,
+        "display_names": display_names,
         "updated_at": now,
     })
-    save_json(ACTIVITIES_OUT, {"users": activity_users, "groups": groups, "updated_at": now})
+    save_json(ACTIVITIES_OUT, {"users": activity_users, "groups": groups, "display_names": display_names, "updated_at": now})
 
     print(f"\nDone.")
     print(f"  {SCORES_OUT.name} and {ACTIVITIES_OUT.name} are ready.")
