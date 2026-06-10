@@ -453,7 +453,7 @@
         "avg_stress": 33.0,
         "avg_spo2": null,
         "avg_respiration": 15.0,
-        "resting_hr": 54,
+        "resting_hr": 53,
         "body_battery_change": null
       },
       "weekly_avg": 61.4,
@@ -637,7 +637,7 @@
           "avg_stress": 33.0,
           "avg_spo2": null,
           "avg_respiration": 15.0,
-          "resting_hr": 54,
+          "resting_hr": 53,
           "body_battery_change": null
         }
       ]
@@ -679,5 +679,5 @@
     "Samgria": "Samgria \ud83c\udf77",
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f"
   },
-  "updated_at": "2026-06-11T07:32:36"
+  "updated_at": "2026-06-11T09:08:21"
 }
