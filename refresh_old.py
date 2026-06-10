@@ -264,88 +264,6 @@ def build_activity_payload(name, cache):
     }
 
 
-
-def compute_wooden_spoon(histories, today):
-    """Lowest single night score across given users in the last 30 days."""
-    cutoff_30 = (today - timedelta(days=30)).isoformat()
-    spoon = None
-    for name, hist in histories.items():
-        for d_str, entry in hist.items():
-            if d_str < cutoff_30 or not entry or entry.get("score") is None:
-                continue
-            if spoon is None or entry["score"] < spoon["score"]:
-                spoon = {
-                    "name": name,
-                    "score": entry["score"],
-                    "date": d_str,
-                    "quality": entry.get("quality"),
-                }
-    return spoon
-
-
-def compute_streak(histories, today):
-    """Most consecutive nights as SOLE top scorer among given users in the
-    last 30 days. A tie for first or a day with no data breaks every streak.
-    Returns None unless the best streak is 2+ nights."""
-    current_name, current_len = None, 0
-    best_name, best_len, best_end = None, 0, None
-    for i in range(29, -1, -1):
-        d_str = (today - timedelta(days=i)).isoformat()
-        day_scores = {}
-        for uname, hist in histories.items():
-            entry = hist.get(d_str)
-            if entry and entry.get("score") is not None:
-                day_scores[uname] = entry["score"]
-
-        winner = None
-        if day_scores:
-            top = max(day_scores.values())
-            leaders = [u for u, s in day_scores.items() if s == top]
-            if len(leaders) == 1:
-                winner = leaders[0]
-
-        if winner and winner == current_name:
-            current_len += 1
-        elif winner:
-            current_name, current_len = winner, 1
-        else:
-            current_name, current_len = None, 0
-
-        if current_len > best_len:
-            best_name, best_len, best_end = current_name, current_len, d_str
-
-    if best_name and best_len >= 2:
-        return {"name": best_name, "days": best_len, "end_date": best_end}
-    return None
-
-
-def compute_nights_won(histories, today):
-    """Count nights each user had the sole top score in the last 30 days.
-    Returns {"counts": [{"name", "nights"}...] sorted desc, "no_winner": N}."""
-    counts = {name: 0 for name in histories}
-    no_winner = 0
-    days_with_data = 0
-    for i in range(29, -1, -1):
-        d_str = (today - timedelta(days=i)).isoformat()
-        day_scores = {}
-        for uname, hist in histories.items():
-            entry = hist.get(d_str)
-            if entry and entry.get("score") is not None:
-                day_scores[uname] = entry["score"]
-        if not day_scores:
-            continue
-        days_with_data += 1
-        top = max(day_scores.values())
-        leaders = [u for u, s in day_scores.items() if s == top]
-        if len(leaders) == 1:
-            counts[leaders[0]] += 1
-        else:
-            no_winner += 1
-    result = [{"name": n, "nights": c} for n, c in counts.items()]
-    result.sort(key=lambda x: -x["nights"])
-    return {"counts": result, "no_winner": no_winner, "days_with_data": days_with_data}
-
-
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -388,7 +306,30 @@ def main():
     sleep_users.sort(key=lambda u: -(u["latest"]["score"] if u.get("latest") else -999))
     activity_users.sort(key=lambda u: u["name"])
 
-    # Load all 30-day histories once
+    # Wooden spoon: lowest single night score across all users in the last 30 days
+    wooden_spoon = None
+    cutoff_30 = (today - timedelta(days=30)).isoformat()
+    for user_dir in sorted(TOKENS_DIR.iterdir()):
+        if not user_dir.is_dir():
+            continue
+        cache_file = DATA_DIR / f"{user_dir.name}.json"
+        cache = load_json(cache_file, {"history": {}})
+        for d_str, entry in cache.get("history", {}).items():
+            if d_str < cutoff_30 or not entry or entry.get("score") is None:
+                continue
+            if wooden_spoon is None or entry["score"] < wooden_spoon["score"]:
+                wooden_spoon = {
+                    "name": user_dir.name,
+                    "score": entry["score"],
+                    "date": d_str,
+                    "quality": entry.get("quality"),
+                }
+
+    if wooden_spoon:
+        print(f"  Wooden spoon: {wooden_spoon['name']} scored {wooden_spoon['score']} on {wooden_spoon['date']}")
+
+    # Longest streak: most consecutive nights as SOLE top scorer in the last
+    # 30 days. A tie for first or a day with no data breaks every streak.
     all_histories = {}
     for user_dir in sorted(TOKENS_DIR.iterdir()):
         if not user_dir.is_dir():
@@ -396,43 +337,40 @@ def main():
         cache = load_json(DATA_DIR / f"{user_dir.name}.json", {"history": {}})
         all_histories[user_dir.name] = cache.get("history", {})
 
-    # Optional groups.json: {"groupA": ["Kyle", ...], "groupB": [...]}
-    groups = load_json(ROOT / "groups.json", {})
-    if groups:
-        known = set(all_histories.keys())
-        for gname, members in groups.items():
-            for m in members:
-                if m not in known:
-                    print(f"  [warn] groups.json: '{m}' in {gname} has no token/data")
+    longest_streak = None
+    current_name, current_len = None, 0
+    best_name, best_len, best_end = None, 0, None
+    for i in range(29, -1, -1):
+        d_str = (today - timedelta(days=i)).isoformat()
+        day_scores = {}
+        for uname, hist in all_histories.items():
+            entry = hist.get(d_str)
+            if entry and entry.get("score") is not None:
+                day_scores[uname] = entry["score"]
 
-    # Awards for everyone ("all") plus per group
-    wooden_spoon = compute_wooden_spoon(all_histories, today)
-    longest_streak = compute_streak(all_histories, today)
-    nights_won = compute_nights_won(all_histories, today)
-    if wooden_spoon:
-        print(f"  Wooden spoon: {wooden_spoon['name']} scored {wooden_spoon['score']} on {wooden_spoon['date']}")
-    if longest_streak:
-        print(f"  Longest streak: {longest_streak['name']} held 1st for {longest_streak['days']} nights")
+        winner = None
+        if day_scores:
+            top = max(day_scores.values())
+            leaders = [u for u, s in day_scores.items() if s == top]
+            if len(leaders) == 1:
+                winner = leaders[0]
 
-    group_awards = {}
-    for gname, members in groups.items():
-        sub = {n: h for n, h in all_histories.items() if n in members}
-        group_awards[gname] = {
-            "wooden_spoon": compute_wooden_spoon(sub, today),
-            "longest_streak": compute_streak(sub, today),
-            "nights_won": compute_nights_won(sub, today),
-        }
+        if winner and winner == current_name:
+            current_len += 1
+        elif winner:
+            current_name, current_len = winner, 1
+        else:
+            current_name, current_len = None, 0
 
-    save_json(SCORES_OUT, {
-        "users": sleep_users,
-        "wooden_spoon": wooden_spoon,
-        "longest_streak": longest_streak,
-        "nights_won": nights_won,
-        "groups": groups,
-        "group_awards": group_awards,
-        "updated_at": now,
-    })
-    save_json(ACTIVITIES_OUT, {"users": activity_users, "groups": groups, "updated_at": now})
+        if current_len > best_len:
+            best_name, best_len, best_end = current_name, current_len, d_str
+
+    if best_name and best_len >= 2:
+        longest_streak = {"name": best_name, "days": best_len, "end_date": best_end}
+        print(f"  Longest streak: {best_name} held 1st for {best_len} nights")
+
+    save_json(SCORES_OUT, {"users": sleep_users, "wooden_spoon": wooden_spoon, "longest_streak": longest_streak, "updated_at": now})
+    save_json(ACTIVITIES_OUT, {"users": activity_users, "updated_at": now})
 
     print(f"\nDone.")
     print(f"  {SCORES_OUT.name} and {ACTIVITIES_OUT.name} are ready.")
