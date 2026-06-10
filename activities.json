@@ -2,8 +2,8 @@
   "users": [
     {
       "name": "Kyle",
-      "weekly_steps": 16191,
-      "avg_daily_steps": 2313,
+      "weekly_steps": 16877,
+      "avg_daily_steps": 2411,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 242.3,
@@ -34,5 +34,6 @@
       "swimming_sessions": 1
     }
   ],
-  "updated_at": "2026-06-10T14:55:32"
+  "groups": {},
+  "updated_at": "2026-06-10T15:57:04"
 }
