@@ -23,10 +23,25 @@ def bootstrap():
     there, re-run this script inside the venv, then clean up. Nothing is
     left behind on the machine.
     """
+    # garminconnect 0.3+ requires Python 3.12+. Older Pythons silently get
+    # an old incompatible library version, so refuse early with clear help.
+    if sys.version_info < (3, 12):
+        v = f"{sys.version_info.major}.{sys.version_info.minor}"
+        print(f"\nThis script needs Python 3.12 or newer. You are running {v}.")
+        print("\nFix:")
+        print("  1. Install the latest Python from https://www.python.org/downloads/")
+        print("  2. Close and reopen your terminal")
+        print("  3. Run again with:  python3.12 garmin_setup_friend.py")
+        print("     (or just `python3 garmin_setup_friend.py` if it now points to the new version)")
+        sys.exit(1)
+
     try:
-        from garminconnect import Garmin  # noqa: F401
-        return  # already available, nothing to do
-    except ImportError:
+        import importlib.metadata
+        ver = importlib.metadata.version("garminconnect")
+        if tuple(int(x) for x in ver.split(".")[:2]) >= (0, 3):
+            return  # correct version already available
+        # Old version installed - fall through to temp venv with pinned version
+    except Exception:
         pass
 
     # Check we haven't already been re-invoked inside a temp venv
@@ -58,7 +73,7 @@ def bootstrap():
         # Install garminconnect quietly
         print("Installing garminconnect (temporary, will be removed after)...")
         subprocess.run(
-            [venv_python, "-m", "pip", "install", "garminconnect", "-q",
+            [venv_python, "-m", "pip", "install", "garminconnect>=0.3.0", "-q",
              "--disable-pip-version-check"],
             check=True,
         )
@@ -120,11 +135,16 @@ def main():
             token_dir = Path(tmp) / name
             token_dir.mkdir()
 
-            garmin = Garmin(
-                email=email,
-                password=password,
-                prompt_mfa=lambda: input("MFA code from email/app: ").strip(),
-            )
+            # prompt_mfa exists in some garminconnect versions but not all.
+            # Newer versions handle MFA internally when login() is called.
+            try:
+                garmin = Garmin(
+                    email=email,
+                    password=password,
+                    prompt_mfa=lambda: input("MFA code from email/app: ").strip(),
+                )
+            except TypeError:
+                garmin = Garmin(email=email, password=password)
             garmin.login(str(token_dir))
 
             # Find the saved token file
