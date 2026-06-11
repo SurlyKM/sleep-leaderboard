@@ -10,7 +10,7 @@ You will need a Garmin watch that tracks sleep and a Garmin Connect account.
 
 ### Step 1 - Install Python
 
-Download and install Python 3.9 or later from [python.org](https://www.python.org/downloads/).
+Download and install Python 3.12 or later from [python.org](https://www.python.org/downloads/). Note: the Python that comes pre-installed on a Mac is too old, you need to install a current one.
 
 During installation on Windows, check the box that says **Add Python to PATH**.
 
