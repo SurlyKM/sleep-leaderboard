@@ -120,9 +120,12 @@ def main():
             token_dir = Path(tmp) / name
             token_dir.mkdir()
 
-            garmin = Garmin(email=email, password=password)
-            garmin.login()
-            garmin.garth.dump(str(token_dir))
+            garmin = Garmin(
+                email=email,
+                password=password,
+                prompt_mfa=lambda: input("MFA code from email/app: ").strip(),
+            )
+            garmin.login(str(token_dir))
 
             # Find the saved token file
             token_file = token_dir / "garmin_tokens.json"
