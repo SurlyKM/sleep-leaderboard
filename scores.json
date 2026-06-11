@@ -667,6 +667,10 @@
       {
         "name": "flatland_enthusiast",
         "nights": 2
+      },
+      {
+        "name": "Ben",
+        "nights": 0
       }
     ],
     "no_winner": 1,
@@ -679,5 +683,5 @@
     "Samgria": "Samgria \ud83c\udf77",
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f"
   },
-  "updated_at": "2026-06-11T09:08:21"
+  "updated_at": "2026-06-11T10:04:13"
 }
