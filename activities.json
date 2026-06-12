@@ -24,8 +24,8 @@
     },
     {
       "name": "Samgria",
-      "weekly_steps": 8671,
-      "avg_daily_steps": 1239,
+      "weekly_steps": 8701,
+      "avg_daily_steps": 1243,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 361.7,
@@ -52,5 +52,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-06-12T09:06:41"
+  "updated_at": "2026-06-12T10:08:22"
 }
