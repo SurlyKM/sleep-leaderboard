@@ -100,13 +100,13 @@ def extract_sleep_summary(raw):
         "rem": rem, "rem_str": fmt_duration(rem), "rem_pct": pct(rem),
         "awake": awake, "awake_str": fmt_duration(awake),
         "avg_hr": dto.get("avgHeartRate"),
-        "avg_hrv": (raw or {}).get("avgOvernightHrv"),
-        "hrv_status": (raw or {}).get("hrvStatus"),
+        "avg_hrv": dto.get("avgOvernightHrv"),
+        "hrv_status": dto.get("hrvStatus"),
         "avg_stress": dto.get("avgSleepStress"),
         "avg_spo2": dto.get("averageSpO2Value"),
         "avg_respiration": dto.get("averageRespirationValue"),
         "resting_hr": (raw or {}).get("restingHeartRate"),
-        "body_battery_change": (raw or {}).get("bodyBatteryChange"),
+        "body_battery_change": dto.get("bodyBatteryChange"),
     }
 
 
