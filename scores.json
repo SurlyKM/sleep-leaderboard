@@ -3,32 +3,32 @@
     {
       "name": "Kyle",
       "latest": {
-        "date": "2026-06-14",
-        "score": 93,
-        "quality": "EXCELLENT",
-        "total": 28680,
-        "total_str": "7h 58m",
-        "deep": 6360,
-        "deep_str": "1h 46m",
-        "deep_pct": 22.2,
-        "light": 16080,
-        "light_str": "4h 28m",
-        "light_pct": 56.1,
-        "rem": 6240,
-        "rem_str": "1h 44m",
-        "rem_pct": 21.8,
-        "awake": 180,
-        "awake_str": "3m",
-        "avg_hr": 53.0,
-        "avg_hrv": 51.0,
+        "date": "2026-06-15",
+        "score": 82,
+        "quality": "GOOD",
+        "total": 29520,
+        "total_str": "8h 12m",
+        "deep": 2820,
+        "deep_str": "47m",
+        "deep_pct": 9.6,
+        "light": 20100,
+        "light_str": "5h 35m",
+        "light_pct": 68.1,
+        "rem": 6600,
+        "rem_str": "1h 50m",
+        "rem_pct": 22.4,
+        "awake": 1260,
+        "awake_str": "21m",
+        "avg_hr": 57.0,
+        "avg_hrv": 43.0,
         "hrv_status": "BALANCED",
-        "avg_stress": 13.0,
+        "avg_stress": 20.0,
         "avg_spo2": 94.0,
         "avg_respiration": 13.0,
-        "resting_hr": 49,
-        "body_battery_change": 52
+        "resting_hr": 52,
+        "body_battery_change": 55
       },
-      "weekly_avg": 89.5,
+      "weekly_avg": 88.4,
       "history": [
         {
           "date": "2026-06-09",
@@ -188,7 +188,29 @@
         },
         {
           "date": "2026-06-15",
-          "score": null
+          "score": 82,
+          "quality": "GOOD",
+          "total": 29520,
+          "total_str": "8h 12m",
+          "deep": 2820,
+          "deep_str": "47m",
+          "deep_pct": 9.6,
+          "light": 20100,
+          "light_str": "5h 35m",
+          "light_pct": 68.1,
+          "rem": 6600,
+          "rem_str": "1h 50m",
+          "rem_pct": 22.4,
+          "awake": 1260,
+          "awake_str": "21m",
+          "avg_hr": 57.0,
+          "avg_hrv": 43.0,
+          "hrv_status": "BALANCED",
+          "avg_stress": 20.0,
+          "avg_spo2": 94.0,
+          "avg_respiration": 13.0,
+          "resting_hr": 52,
+          "body_battery_change": 55
         }
       ]
     },
@@ -409,32 +431,32 @@
     {
       "name": "Samgria",
       "latest": {
-        "date": "2026-06-14",
-        "score": 79,
+        "date": "2026-06-15",
+        "score": 78,
         "quality": "FAIR",
-        "total": 23220,
-        "total_str": "6h 27m",
-        "deep": 3060,
-        "deep_str": "51m",
-        "deep_pct": 13.2,
-        "light": 14640,
-        "light_str": "4h 4m",
-        "light_pct": 63.0,
-        "rem": 5520,
-        "rem_str": "1h 32m",
-        "rem_pct": 23.8,
-        "awake": 0,
-        "awake_str": "0m",
+        "total": 23640,
+        "total_str": "6h 34m",
+        "deep": 2880,
+        "deep_str": "48m",
+        "deep_pct": 12.2,
+        "light": 16980,
+        "light_str": "4h 43m",
+        "light_pct": 71.8,
+        "rem": 3780,
+        "rem_str": "1h 3m",
+        "rem_pct": 16.0,
+        "awake": 60,
+        "awake_str": "1m",
         "avg_hr": 45.0,
-        "avg_hrv": 67.0,
+        "avg_hrv": 63.0,
         "hrv_status": "BALANCED",
-        "avg_stress": 15.0,
+        "avg_stress": 14.0,
         "avg_spo2": null,
         "avg_respiration": 11.0,
-        "resting_hr": 41,
-        "body_battery_change": 79
+        "resting_hr": 40,
+        "body_battery_change": 69
       },
-      "weekly_avg": 75.2,
+      "weekly_avg": 75.6,
       "history": [
         {
           "date": "2026-06-09",
@@ -594,7 +616,29 @@
         },
         {
           "date": "2026-06-15",
-          "score": null
+          "score": 78,
+          "quality": "FAIR",
+          "total": 23640,
+          "total_str": "6h 34m",
+          "deep": 2880,
+          "deep_str": "48m",
+          "deep_pct": 12.2,
+          "light": 16980,
+          "light_str": "4h 43m",
+          "light_pct": 71.8,
+          "rem": 3780,
+          "rem_str": "1h 3m",
+          "rem_pct": 16.0,
+          "awake": 60,
+          "awake_str": "1m",
+          "avg_hr": 45.0,
+          "avg_hrv": 63.0,
+          "hrv_status": "BALANCED",
+          "avg_stress": 14.0,
+          "avg_spo2": null,
+          "avg_respiration": 11.0,
+          "resting_hr": 40,
+          "body_battery_change": 69
         }
       ]
     },
@@ -828,7 +872,7 @@
     "counts": [
       {
         "name": "Kyle",
-        "nights": 9
+        "nights": 10
       },
       {
         "name": "Samgria",
@@ -840,7 +884,7 @@
       },
       {
         "name": "Ben",
-        "nights": 1
+        "nights": 0
       }
     ],
     "no_winner": 2,
@@ -854,5 +898,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-06-15T06:43:45"
+  "updated_at": "2026-06-15T08:41:41"
 }
