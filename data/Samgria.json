@@ -413,9 +413,9 @@
       "avg_stress": 15.0,
       "avg_spo2": null,
       "avg_respiration": 11.0,
-      "resting_hr": 44,
+      "resting_hr": 41,
       "body_battery_change": 79
     }
   },
-  "fetched_at": "2026-06-14T08:37:12"
+  "fetched_at": "2026-06-14T13:39:27"
 }
