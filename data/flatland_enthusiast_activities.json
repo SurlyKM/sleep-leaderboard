@@ -18,7 +18,7 @@
     "2026-06-14": 23521,
     "2026-06-15": 96,
     "2026-06-16": 102,
-    "2026-06-17": 281
+    "2026-06-17": 4227
   },
   "activities": [
     {
@@ -148,6 +148,13 @@
       "raw_type": "running"
     },
     {
+      "date": "2026-06-17",
+      "type": "cycling",
+      "distance_km": 7.56,
+      "duration_s": 1296,
+      "raw_type": "cycling"
+    },
+    {
       "date": "2026-06-14",
       "type": "running",
       "distance_km": 21.19,
@@ -176,5 +183,5 @@
       "raw_type": "cycling"
     }
   ],
-  "fetched_at": "2026-06-17T07:58:15"
+  "fetched_at": "2026-06-17T09:05:00"
 }
