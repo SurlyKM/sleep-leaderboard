@@ -19,7 +19,8 @@
     "2026-06-15": 559,
     "2026-06-16": 18,
     "2026-06-17": 265,
-    "2026-06-18": 147
+    "2026-06-18": 147,
+    "2026-06-19": 18
   },
   "activities": [
     {
@@ -149,19 +150,26 @@
       "raw_type": "road_biking"
     },
     {
-      "date": "2026-06-14",
-      "type": "cycling",
-      "distance_km": 50.29,
-      "duration_s": 6986,
-      "raw_type": "road_biking"
-    },
-    {
       "date": "2026-06-12",
       "type": "cycling",
       "distance_km": 14.01,
       "duration_s": 4117,
       "raw_type": "mountain_biking"
+    },
+    {
+      "date": "2026-06-18",
+      "type": "cycling",
+      "distance_km": 47.26,
+      "duration_s": 6231,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-06-14",
+      "type": "cycling",
+      "distance_km": 50.29,
+      "duration_s": 6986,
+      "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-06-18T08:58:17"
+  "fetched_at": "2026-06-19T07:32:08"
 }
