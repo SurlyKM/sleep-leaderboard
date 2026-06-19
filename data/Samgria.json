@@ -548,19 +548,19 @@
     },
     "2026-06-20": {
       "date": "2026-06-20",
-      "score": 51,
+      "score": 58,
       "quality": "POOR",
-      "total": 13980,
-      "total_str": "3h 53m",
+      "total": 16858,
+      "total_str": "4h 40m",
       "deep": 4320,
       "deep_str": "1h 12m",
-      "deep_pct": 30.9,
-      "light": 8400,
-      "light_str": "2h 20m",
-      "light_pct": 60.1,
+      "deep_pct": 25.6,
+      "light": 11280,
+      "light_str": "3h 8m",
+      "light_pct": 66.9,
       "rem": 1260,
       "rem_str": "21m",
-      "rem_pct": 9.0,
+      "rem_pct": 7.5,
       "awake": 0,
       "awake_str": "0m",
       "avg_hr": 43.0,
@@ -573,5 +573,5 @@
       "body_battery_change": 48
     }
   },
-  "fetched_at": "2026-06-20T06:50:24"
+  "fetched_at": "2026-06-20T08:31:11"
 }
