@@ -22,7 +22,8 @@
     "2026-06-18": 78,
     "2026-06-19": 1051,
     "2026-06-20": 607,
-    "2026-06-21": 309
+    "2026-06-21": 309,
+    "2026-06-22": 180
   },
   "activities": [
     {
@@ -180,6 +181,27 @@
       "raw_type": "running"
     },
     {
+      "date": "2026-06-21",
+      "type": "running",
+      "distance_km": 4.87,
+      "duration_s": 1955,
+      "raw_type": "trail_running"
+    },
+    {
+      "date": "2026-06-21",
+      "type": "running",
+      "distance_km": 5.01,
+      "duration_s": 1192,
+      "raw_type": "running"
+    },
+    {
+      "date": "2026-06-21",
+      "type": "running",
+      "distance_km": 1.98,
+      "duration_s": 626,
+      "raw_type": "running"
+    },
+    {
       "date": "2026-06-20",
       "type": "cycling",
       "distance_km": 19.52,
@@ -243,5 +265,5 @@
       "raw_type": "cycling"
     }
   ],
-  "fetched_at": "2026-06-21T08:42:24"
+  "fetched_at": "2026-06-22T06:50:11"
 }
