@@ -177,7 +177,14 @@ def fetch_activities(client, name, today):
     target_dates = [(today - timedelta(days=i)).isoformat() for i in range(HISTORY_DAYS)]
 
     # Steps: re-fetch today, use cache for older days
-    dates_needing_steps = [d for d in target_dates if d == today_str or d not in steps_cache]
+    # Re-fetch today AND yesterday every run (Garmin keeps syncing steps
+    # throughout the day, so yesterday's number isn't final until today).
+    # Anything missing entirely also gets fetched.
+    recent_cutoff = (today - timedelta(days=1)).isoformat()
+    dates_needing_steps = [
+        d for d in target_dates
+        if d >= recent_cutoff or d not in steps_cache
+    ]
     for d_str in dates_needing_steps:
         try:
             summary = client.get_user_summary(d_str)
