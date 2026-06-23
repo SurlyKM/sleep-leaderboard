@@ -23,7 +23,7 @@
     "2026-06-19": 8917,
     "2026-06-20": 188,
     "2026-06-21": 159,
-    "2026-06-22": 61,
+    "2026-06-22": 3523,
     "2026-06-23": 57
   },
   "activities": [
@@ -112,6 +112,20 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-06-23",
+      "type": "cycling",
+      "distance_km": 7.8,
+      "duration_s": 779,
+      "raw_type": "virtual_ride"
+    },
+    {
+      "date": "2026-06-23",
+      "type": "cycling",
+      "distance_km": 2.87,
+      "duration_s": 361,
+      "raw_type": "virtual_ride"
+    },
+    {
       "date": "2026-06-22",
       "type": "cycling",
       "distance_km": 25.09,
@@ -147,5 +161,5 @@
       "raw_type": "running"
     }
   ],
-  "fetched_at": "2026-06-23T09:02:31"
+  "fetched_at": "2026-06-23T20:24:09"
 }
