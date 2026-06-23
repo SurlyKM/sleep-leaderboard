@@ -1,0 +1,42 @@
+{
+  "steps": {
+    "2026-06-23": 3888,
+    "2026-06-22": 6815,
+    "2026-06-21": 12888,
+    "2026-06-20": 19161,
+    "2026-06-19": 14504,
+    "2026-06-18": 15311,
+    "2026-06-17": 13931
+  },
+  "activities": [
+    {
+      "date": "2026-06-22",
+      "type": "cycling",
+      "distance_km": 23.72,
+      "duration_s": 3151,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-06-22",
+      "type": "swimming",
+      "distance_km": 0.08,
+      "duration_s": 263,
+      "raw_type": "open_water_swimming"
+    },
+    {
+      "date": "2026-06-20",
+      "type": "cycling",
+      "distance_km": 35.05,
+      "duration_s": 4544,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-06-18",
+      "type": "cycling",
+      "distance_km": 47.26,
+      "duration_s": 6231,
+      "raw_type": "road_biking"
+    }
+  ],
+  "fetched_at": "2026-06-23T21:03:56"
+}
