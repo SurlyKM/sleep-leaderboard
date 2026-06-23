@@ -1,5 +1,4 @@
 tokens_secret.txt
 tokens/
-data/*.json
 *.pyc
 __pycache__/
