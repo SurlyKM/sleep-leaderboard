@@ -102,6 +102,79 @@
   .group-pill:hover { border-color: var(--border-bright); color: var(--text); }
   .group-pill.active { background: var(--accent); border-color: var(--accent); color: #08111a; }
 
+  /* Steps leader */
+  .steps-leader {
+    background: linear-gradient(135deg, rgba(167,139,250,0.1) 0%, rgba(167,139,250,0.03) 100%);
+    border: 1px solid rgba(167,139,250,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .steps-leader-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
+  .steps-leader-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--steps);
+    margin-bottom: 3px;
+  }
+  .steps-leader-name {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .steps-leader-right { margin-left: auto; text-align: right; flex-shrink: 0; }
+  .steps-leader-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--steps);
+    line-height: 1;
+  }
+  .steps-leader-sub {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+  .steps-chart {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 24px;
+  }
+  .sc-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .sc-row:last-child { margin-bottom: 0; }
+  .sc-name {
+    width: 84px;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .sc-track { flex: 1; height: 22px; background: var(--surface); border-radius: 6px; overflow: hidden; }
+  .sc-fill { height: 100%; border-radius: 6px; transition: width 0.4s ease; }
+  .sc-count {
+    width: 64px;
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
   /* User cards */
   .cards { display: flex; flex-direction: column; gap: 16px; }
 
@@ -215,6 +288,8 @@
 
   <div id="groupSwitch" class="group-switch"></div>
 
+  <div id="stepsLeader"></div>
+
   <div id="cards" class="cards"></div>
 
   <footer>Garmin Connect &middot; data updated manually</footer>
@@ -234,6 +309,46 @@ function sessionLabel(n, type) {
 function dn(name) {
   const m = (DATA && DATA.display_names) || {};
   return m[name] || name.replace(/_/g, ' ');
+}
+
+function fmtK(n) {
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+  return String(n);
+}
+
+function renderStepsLeader(users) {
+  const withSteps = users.filter(u => (u.weekly_steps || 0) > 0);
+  if (!withSteps.length) return '';
+  const sorted = withSteps.slice().sort((a, b) => (b.weekly_steps || 0) - (a.weekly_steps || 0));
+  const leader = sorted[0];
+  const max = leader.weekly_steps || 1;
+  const palette = ['#a78bfa', '#4fa8d0', '#3dd68c', '#e8c547', '#f0997b', '#ed93b1'];
+
+  const banner = `
+    <div class="steps-leader">
+      <div class="steps-leader-icon">👣</div>
+      <div>
+        <div class="steps-leader-label">Step leader · this week</div>
+        <div class="steps-leader-name">${dn(leader.name)}</div>
+      </div>
+      <div class="steps-leader-right">
+        <div class="steps-leader-count">${(leader.weekly_steps || 0).toLocaleString()}</div>
+        <div class="steps-leader-sub">steps</div>
+      </div>
+    </div>`;
+
+  const rows = sorted.map((u, i) => {
+    const pct = Math.round(((u.weekly_steps || 0) / max) * 100);
+    const color = palette[i % palette.length];
+    return `
+      <div class="sc-row">
+        <div class="sc-name">${dn(u.name)}</div>
+        <div class="sc-track"><div class="sc-fill" style="width:${pct}%;background:${color}"></div></div>
+        <div class="sc-count" style="color:${color}">${fmtK(u.weekly_steps || 0)}</div>
+      </div>`;
+  }).join('');
+
+  return banner + `<div class="steps-chart">${rows}</div>`;
 }
 
 function renderCard(u) {
@@ -335,6 +450,7 @@ let DATA = null;
 function renderForGroup() {
   if (!DATA) return;
   const users = filterByGroup(DATA.users || []);
+  document.getElementById('stepsLeader').innerHTML = renderStepsLeader(users);
   document.getElementById('cards').innerHTML = users.length
     ? users.map(renderCard).join('')
     : `<div style="color:var(--muted);font-size:13px;padding:24px 0">No members in this group yet.</div>`;
