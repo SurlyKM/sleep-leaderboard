@@ -432,7 +432,7 @@
         "avg_spo2": 96.0,
         "avg_respiration": 14.0,
         "resting_hr": 55,
-        "body_battery_change": null
+        "body_battery_change": 37
       },
       "weekly_avg": 76.6,
       "history": [
@@ -616,7 +616,7 @@
           "avg_spo2": 96.0,
           "avg_respiration": 14.0,
           "resting_hr": 55,
-          "body_battery_change": null
+          "body_battery_change": 37
         }
       ]
     },
@@ -854,5 +854,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-06-25T07:03:15"
+  "updated_at": "2026-06-25T08:47:48"
 }
