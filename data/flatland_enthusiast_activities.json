@@ -77,6 +77,13 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-06-27",
+      "type": "swimming",
+      "distance_km": 1.14,
+      "duration_s": 1597,
+      "raw_type": "open_water_swimming"
+    },
+    {
       "date": "2026-06-26",
       "type": "cycling",
       "distance_km": 13.14,
@@ -154,5 +161,5 @@
       "raw_type": "running"
     }
   ],
-  "fetched_at": "2026-06-27T07:00:18"
+  "fetched_at": "2026-06-27T08:45:19"
 }
