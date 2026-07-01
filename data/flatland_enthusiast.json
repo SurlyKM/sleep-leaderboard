@@ -104,32 +104,6 @@
       "resting_hr": 45,
       "body_battery_change": null
     },
-    "2026-06-01": {
-      "date": "2026-06-01",
-      "score": 74,
-      "quality": "FAIR",
-      "total": 24120,
-      "total_str": "6h 42m",
-      "deep": 3600,
-      "deep_str": "1h 0m",
-      "deep_pct": 14.9,
-      "light": 17400,
-      "light_str": "4h 50m",
-      "light_pct": 72.1,
-      "rem": 3120,
-      "rem_str": "52m",
-      "rem_pct": 12.9,
-      "awake": 840,
-      "awake_str": "14m",
-      "avg_hr": 57.0,
-      "avg_hrv": null,
-      "hrv_status": null,
-      "avg_stress": 21.0,
-      "avg_spo2": null,
-      "avg_respiration": 14.0,
-      "resting_hr": 49,
-      "body_battery_change": null
-    },
     "2026-06-06": {
       "date": "2026-06-06",
       "score": 41,
@@ -805,7 +779,8 @@
       "avg_respiration": 14.0,
       "resting_hr": 54,
       "body_battery_change": 31
-    }
+    },
+    "2026-07-02": null
   },
-  "fetched_at": "2026-07-01T21:17:15"
+  "fetched_at": "2026-07-02T06:59:15"
 }
