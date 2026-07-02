@@ -2,30 +2,30 @@
   "users": [
     {
       "name": "Ben",
-      "weekly_steps": 49478,
-      "avg_daily_steps": 7068,
+      "weekly_steps": 47200,
+      "avg_daily_steps": 6743,
       "running_km": 0,
       "running_sessions": 0,
-      "cycling_km": 27.7,
-      "cycling_sessions": 3,
+      "cycling_km": 37.4,
+      "cycling_sessions": 4,
       "swimming_km": 0,
       "swimming_sessions": 0
     },
     {
       "name": "Kyle",
-      "weekly_steps": 30797,
-      "avg_daily_steps": 4400,
+      "weekly_steps": 30431,
+      "avg_daily_steps": 4347,
       "running_km": 0,
       "running_sessions": 0,
-      "cycling_km": 168.5,
+      "cycling_km": 154.2,
       "cycling_sessions": 7,
       "swimming_km": 1.0,
       "swimming_sessions": 1
     },
     {
       "name": "Samgria",
-      "weekly_steps": 47039,
-      "avg_daily_steps": 6720,
+      "weekly_steps": 44239,
+      "avg_daily_steps": 6320,
       "running_km": 10.6,
       "running_sessions": 2,
       "cycling_km": 98.3,
@@ -35,14 +35,14 @@
     },
     {
       "name": "flatland_enthusiast",
-      "weekly_steps": 87165,
-      "avg_daily_steps": 12452,
+      "weekly_steps": 76947,
+      "avg_daily_steps": 10992,
       "running_km": 25.9,
       "running_sessions": 3,
-      "cycling_km": 47.4,
-      "cycling_sessions": 4,
-      "swimming_km": 2.6,
-      "swimming_sessions": 3
+      "cycling_km": 34.3,
+      "cycling_sessions": 3,
+      "swimming_km": 2.2,
+      "swimming_sessions": 2
     }
   ],
   "groups": {},
@@ -52,5 +52,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-07-02T08:47:02"
+  "updated_at": "2026-07-03T06:38:56"
 }
