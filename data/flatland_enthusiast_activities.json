@@ -16,7 +16,8 @@
     "2026-06-30": 17984,
     "2026-07-01": 10705,
     "2026-07-02": 0,
-    "2026-07-03": 0
+    "2026-07-03": 16655,
+    "2026-07-04": 63
   },
   "activities": [
     {
@@ -160,6 +161,27 @@
       "raw_type": "open_water_swimming"
     },
     {
+      "date": "2026-06-27",
+      "type": "running",
+      "distance_km": 14.61,
+      "duration_s": 4261,
+      "raw_type": "running"
+    },
+    {
+      "date": "2026-06-27",
+      "type": "swimming",
+      "distance_km": 1.14,
+      "duration_s": 1597,
+      "raw_type": "open_water_swimming"
+    },
+    {
+      "date": "2026-07-03",
+      "type": "running",
+      "distance_km": 4.16,
+      "duration_s": 1378,
+      "raw_type": "running"
+    },
+    {
       "date": "2026-07-01",
       "type": "running",
       "distance_km": 5.07,
@@ -200,21 +222,7 @@
       "distance_km": 3.52,
       "duration_s": 633,
       "raw_type": "cycling"
-    },
-    {
-      "date": "2026-06-27",
-      "type": "running",
-      "distance_km": 14.61,
-      "duration_s": 4261,
-      "raw_type": "running"
-    },
-    {
-      "date": "2026-06-27",
-      "type": "swimming",
-      "distance_km": 1.14,
-      "duration_s": 1597,
-      "raw_type": "open_water_swimming"
     }
   ],
-  "fetched_at": "2026-07-03T08:36:30"
+  "fetched_at": "2026-07-04T06:34:54"
 }
