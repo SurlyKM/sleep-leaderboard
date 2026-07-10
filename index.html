@@ -338,6 +338,29 @@
     margin-top: 14px;
   }
 
+  /* Inactive (not synced recently) section */
+  .inactive-toggle {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .inactive-toggle:hover { border-color: var(--border-bright); color: var(--text); }
+  #inactiveChevron { display: inline-block; transition: transform 0.15s; }
+  .inactive-toggle.open #inactiveChevron { transform: rotate(90deg); }
+  #inactiveBoard .row { opacity: 0.6; }
+
   /* Section label */
   .section-label {
     font-size: 10px;
@@ -588,6 +611,11 @@
 
   <div class="section-label">Last night</div>
   <div id="board" class="leaderboard"></div>
+
+  <button class="inactive-toggle" id="inactiveToggle" style="display:none" onclick="toggleInactive()">
+    <span id="inactiveChevron">▸</span> <span id="inactiveCount"></span>
+  </button>
+  <div id="inactiveBoard" class="leaderboard" style="display:none; margin-top:10px;"></div>
 
   <div class="section-label" id="weekLabel" style="margin-top:32px;display:none">This week</div>
   <div id="weekWrap"></div>
@@ -880,11 +908,43 @@ function filterByGroup(users) {
 
 let DATA = null;
 
+function daysStale(u) {
+  // How many days old is this user's most recent SCORED night?
+  const history = u.history || [];
+  let newest = null;
+  for (let k = history.length - 1; k >= 0; k--) {
+    if (history[k].score !== null && history[k].score !== undefined) { newest = history[k]; break; }
+  }
+  if (!newest) return Infinity;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const d = new Date(newest.date + 'T00:00:00');
+  return Math.round((today - d) / 86400000);
+}
+
+function toggleInactive() {
+  const board = document.getElementById('inactiveBoard');
+  const btn = document.getElementById('inactiveToggle');
+  const open = board.style.display !== 'none';
+  board.style.display = open ? 'none' : '';
+  btn.classList.toggle('open', !open);
+}
+
 function renderForGroup() {
   if (!DATA) return;
-  let users = filterByGroup(DATA.users || []);
+  const allUsers = filterByGroup(DATA.users || []);
 
-  // Competition ranking within the visible set: ties share a rank
+  // Staleness filter: newest score more than 2 days old = inactive.
+  // Users with no data at all also go to inactive.
+  const users = [];
+  const inactive = [];
+  for (const u of allUsers) {
+    const stale = daysStale(u);
+    u._stale = stale;
+    if (stale <= 2) users.push(u);
+    else inactive.push(u);
+  }
+
+  // Competition ranking within the active set: ties share a rank
   let lastScore = null, lastRank = 0;
   users.forEach((u, i) => {
     const s = u.latest ? u.latest.score : null;
@@ -899,7 +959,23 @@ function renderForGroup() {
 
   document.getElementById('board').innerHTML = users.length
     ? users.map(renderRow).join('')
-    : `<div style="color:var(--muted);font-size:13px;padding:24px 0">No members in this group yet.</div>`;
+    : `<div style="color:var(--muted);font-size:13px;padding:24px 0">Nobody has synced in the last 2 days.</div>`;
+
+  // Inactive section: sort by most-recently-seen first, give sequential ranks
+  const toggle = document.getElementById('inactiveToggle');
+  const inactiveBoard = document.getElementById('inactiveBoard');
+  if (inactive.length) {
+    inactive.sort((a, b) => a._stale - b._stale);
+    inactive.forEach((u, i) => { u._rank = users.length + i; });
+    inactiveBoard.innerHTML = inactive.map(renderRow).join('');
+    document.getElementById('inactiveCount').textContent =
+      `${inactive.length} not synced recently`;
+    toggle.style.display = '';
+  } else {
+    toggle.style.display = 'none';
+    inactiveBoard.style.display = 'none';
+    inactiveBoard.innerHTML = '';
+  }
 
   // Awards: per-group from server when a group is selected, else overall
   let spoon = DATA.wooden_spoon || null;
@@ -910,7 +986,7 @@ function renderForGroup() {
     streak = DATA.group_awards[CURRENT_GROUP].longest_streak || null;
     nightsWon = DATA.group_awards[CURRENT_GROUP].nights_won || null;
   }
-  const weekHTML = renderChampion(users);
+  const weekHTML = renderChampion(allUsers);
   const monthHTML = renderWoodenSpoon(spoon) + renderStreak(streak) + renderNightsWon(nightsWon);
   document.getElementById('weekWrap').innerHTML = weekHTML;
   document.getElementById('monthWrap').innerHTML = monthHTML;
