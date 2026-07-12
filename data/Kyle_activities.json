@@ -25,7 +25,8 @@
     "2026-07-09": 4940,
     "2026-07-10": 8902,
     "2026-07-11": 10978,
-    "2026-07-12": 117
+    "2026-07-12": 5279,
+    "2026-07-13": 0
   },
   "activities": [
     {
@@ -176,6 +177,20 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-07-06",
+      "type": "cycling",
+      "distance_km": 20.19,
+      "duration_s": 2229,
+      "raw_type": "virtual_ride"
+    },
+    {
+      "date": "2026-07-12",
+      "type": "cycling",
+      "distance_km": 19.9,
+      "duration_s": 4907,
+      "raw_type": "mountain_biking"
+    },
+    {
       "date": "2026-07-10",
       "type": "cycling",
       "distance_km": 10.58,
@@ -202,14 +217,7 @@
       "distance_km": 22.19,
       "duration_s": 2497,
       "raw_type": "virtual_ride"
-    },
-    {
-      "date": "2026-07-06",
-      "type": "cycling",
-      "distance_km": 20.19,
-      "duration_s": 2229,
-      "raw_type": "virtual_ride"
     }
   ],
-  "fetched_at": "2026-07-12T08:22:24"
+  "fetched_at": "2026-07-13T06:11:59"
 }
