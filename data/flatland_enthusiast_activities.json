@@ -28,7 +28,8 @@
     "2026-07-12": 12494,
     "2026-07-13": 20410,
     "2026-07-14": 10145,
-    "2026-07-15": 616
+    "2026-07-15": 13681,
+    "2026-07-16": 78
   },
   "activities": [
     {
@@ -242,6 +243,20 @@
       "raw_type": "running"
     },
     {
+      "date": "2026-07-09",
+      "type": "cycling",
+      "distance_km": 28.62,
+      "duration_s": 3903,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-07-15",
+      "type": "running",
+      "distance_km": 6.53,
+      "duration_s": 2015,
+      "raw_type": "running"
+    },
+    {
       "date": "2026-07-15",
       "type": "cycling",
       "distance_km": 32.24,
@@ -275,14 +290,7 @@
       "distance_km": 1.04,
       "duration_s": 1447,
       "raw_type": "open_water_swimming"
-    },
-    {
-      "date": "2026-07-09",
-      "type": "cycling",
-      "distance_km": 28.62,
-      "duration_s": 3903,
-      "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-07-15T08:30:25"
+  "fetched_at": "2026-07-16T06:29:42"
 }
