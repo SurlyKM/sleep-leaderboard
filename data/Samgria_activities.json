@@ -5,7 +5,6 @@
     "2026-06-21": 3556,
     "2026-06-20": 4181,
     "2026-06-19": 13062,
-    "2026-06-18": 1742,
     "2026-06-24": 9271,
     "2026-06-25": 5443,
     "2026-06-26": 8010,
@@ -30,16 +29,10 @@
     "2026-07-15": 0,
     "2026-07-16": 0,
     "2026-07-17": 0,
-    "2026-07-18": 0
+    "2026-07-18": 0,
+    "2026-07-19": 0
   },
   "activities": [
-    {
-      "date": "2026-06-18",
-      "type": "cycling",
-      "distance_km": 24.43,
-      "duration_s": 3950,
-      "raw_type": "road_biking"
-    },
     {
       "date": "2026-06-19",
       "type": "running",
@@ -160,6 +153,20 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-07-12",
+      "type": "cycling",
+      "distance_km": 14.47,
+      "duration_s": 3137,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-07-12",
+      "type": "cycling",
+      "distance_km": 67.85,
+      "duration_s": 8065,
+      "raw_type": "road_biking"
+    },
+    {
       "date": "2026-07-16",
       "type": "running",
       "distance_km": 11.41,
@@ -179,21 +186,7 @@
       "distance_km": 60.31,
       "duration_s": 7966,
       "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-07-12",
-      "type": "cycling",
-      "distance_km": 14.47,
-      "duration_s": 3137,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-07-12",
-      "type": "cycling",
-      "distance_km": 67.85,
-      "duration_s": 8065,
-      "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-07-18T08:22:01"
+  "fetched_at": "2026-07-19T06:09:47"
 }
