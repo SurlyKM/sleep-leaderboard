@@ -30,7 +30,7 @@
     "2026-07-16": 10262,
     "2026-07-17": 18449,
     "2026-07-18": 10948,
-    "2026-07-19": 178
+    "2026-07-19": 19989
   },
   "activities": [
     {
@@ -237,6 +237,13 @@
       "raw_type": "lap_swimming"
     },
     {
+      "date": "2026-07-19",
+      "type": "running",
+      "distance_km": 16.62,
+      "duration_s": 6088,
+      "raw_type": "running"
+    },
+    {
       "date": "2026-07-17",
       "type": "running",
       "distance_km": 6.27,
@@ -272,5 +279,5 @@
       "raw_type": "running"
     }
   ],
-  "fetched_at": "2026-07-19T08:23:10"
+  "fetched_at": "2026-07-19T20:18:27"
 }
