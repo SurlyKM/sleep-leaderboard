@@ -160,6 +160,13 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-07-21",
+      "type": "cycling",
+      "distance_km": 63.04,
+      "duration_s": 8061,
+      "raw_type": "road_biking"
+    },
+    {
       "date": "2026-07-20",
       "type": "cycling",
       "distance_km": 7.08,
@@ -181,5 +188,5 @@
       "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-07-21T06:45:32"
+  "fetched_at": "2026-07-21T08:30:21"
 }
