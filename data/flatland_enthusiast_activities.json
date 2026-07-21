@@ -30,7 +30,7 @@
     "2026-07-19": 20315,
     "2026-07-20": 12923,
     "2026-07-21": 18666,
-    "2026-07-22": 328
+    "2026-07-22": 418
   },
   "activities": [
     {
@@ -209,6 +209,13 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-07-22",
+      "type": "cycling",
+      "distance_km": 29.95,
+      "duration_s": 4246,
+      "raw_type": "road_biking"
+    },
+    {
       "date": "2026-07-21",
       "type": "running",
       "distance_km": 7.12,
@@ -244,5 +251,5 @@
       "raw_type": "running"
     }
   ],
-  "fetched_at": "2026-07-22T06:39:07"
+  "fetched_at": "2026-07-22T08:27:37"
 }
