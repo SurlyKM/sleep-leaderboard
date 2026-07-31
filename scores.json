@@ -28,34 +28,8 @@
         "resting_hr": 51,
         "body_battery_change": 64
       },
-      "weekly_avg": 82.7,
+      "weekly_avg": 83.3,
       "history": [
-        {
-          "date": "2026-07-25",
-          "score": 79,
-          "quality": "FAIR",
-          "total": 27900,
-          "total_str": "7h 45m",
-          "deep": 2040,
-          "deep_str": "34m",
-          "deep_pct": 7.3,
-          "light": 19560,
-          "light_str": "5h 26m",
-          "light_pct": 70.1,
-          "rem": 6300,
-          "rem_str": "1h 45m",
-          "rem_pct": 22.6,
-          "awake": 960,
-          "awake_str": "16m",
-          "avg_hr": 59.0,
-          "avg_hrv": 43.0,
-          "hrv_status": "BALANCED",
-          "avg_stress": 20.0,
-          "avg_spo2": 95.0,
-          "avg_respiration": 14.0,
-          "resting_hr": 54,
-          "body_battery_change": 41
-        },
         {
           "date": "2026-07-26",
           "score": 87,
@@ -211,6 +185,10 @@
           "avg_respiration": 14.0,
           "resting_hr": 51,
           "body_battery_change": 64
+        },
+        {
+          "date": "2026-08-01",
+          "score": null
         }
       ]
     },
@@ -242,34 +220,8 @@
         "resting_hr": 51,
         "body_battery_change": 62
       },
-      "weekly_avg": 60.6,
+      "weekly_avg": 60.3,
       "history": [
-        {
-          "date": "2026-07-25",
-          "score": 62,
-          "quality": "FAIR",
-          "total": 31380,
-          "total_str": "8h 43m",
-          "deep": 5220,
-          "deep_str": "1h 27m",
-          "deep_pct": 16.6,
-          "light": 24420,
-          "light_str": "6h 47m",
-          "light_pct": 77.8,
-          "rem": 1740,
-          "rem_str": "29m",
-          "rem_pct": 5.5,
-          "awake": 2340,
-          "awake_str": "39m",
-          "avg_hr": 59.0,
-          "avg_hrv": 80.0,
-          "hrv_status": "BALANCED",
-          "avg_stress": 23.0,
-          "avg_spo2": null,
-          "avg_respiration": 14.0,
-          "resting_hr": 48,
-          "body_battery_change": 52
-        },
         {
           "date": "2026-07-26",
           "score": 33,
@@ -425,65 +377,43 @@
           "avg_respiration": 14.0,
           "resting_hr": 51,
           "body_battery_change": 62
+        },
+        {
+          "date": "2026-08-01",
+          "score": null
         }
       ]
     },
     {
       "name": "Ben",
       "latest": {
-        "date": "2026-07-31",
-        "score": 73,
+        "date": "2026-08-01",
+        "score": 78,
         "quality": "FAIR",
-        "total": 26400,
-        "total_str": "7h 20m",
-        "deep": 4260,
-        "deep_str": "1h 11m",
-        "deep_pct": 16.1,
-        "light": 19620,
-        "light_str": "5h 27m",
-        "light_pct": 74.3,
-        "rem": 2520,
-        "rem_str": "42m",
-        "rem_pct": 9.5,
-        "awake": 2700,
-        "awake_str": "45m",
+        "total": 29400,
+        "total_str": "8h 10m",
+        "deep": 5820,
+        "deep_str": "1h 37m",
+        "deep_pct": 19.8,
+        "light": 18420,
+        "light_str": "5h 7m",
+        "light_pct": 62.7,
+        "rem": 5160,
+        "rem_str": "1h 26m",
+        "rem_pct": 17.6,
+        "awake": 3060,
+        "awake_str": "51m",
         "avg_hr": 59.0,
-        "avg_hrv": 52.0,
+        "avg_hrv": 50.0,
         "hrv_status": "UNBALANCED",
-        "avg_stress": 20.0,
+        "avg_stress": 18.0,
         "avg_spo2": null,
-        "avg_respiration": 12.0,
+        "avg_respiration": 13.0,
         "resting_hr": 54,
-        "body_battery_change": 65
+        "body_battery_change": 68
       },
-      "weekly_avg": 77.6,
+      "weekly_avg": 79.3,
       "history": [
-        {
-          "date": "2026-07-25",
-          "score": 66,
-          "quality": "FAIR",
-          "total": 28860,
-          "total_str": "8h 1m",
-          "deep": 5820,
-          "deep_str": "1h 37m",
-          "deep_pct": 20.2,
-          "light": 20040,
-          "light_str": "5h 34m",
-          "light_pct": 69.4,
-          "rem": 3000,
-          "rem_str": "50m",
-          "rem_pct": 10.4,
-          "awake": 3180,
-          "awake_str": "53m",
-          "avg_hr": 61.0,
-          "avg_hrv": 41.0,
-          "hrv_status": "UNBALANCED",
-          "avg_stress": 25.0,
-          "avg_spo2": null,
-          "avg_respiration": 13.0,
-          "resting_hr": 54,
-          "body_battery_change": 52
-        },
         {
           "date": "2026-07-26",
           "score": 71,
@@ -639,6 +569,32 @@
           "avg_respiration": 12.0,
           "resting_hr": 54,
           "body_battery_change": 65
+        },
+        {
+          "date": "2026-08-01",
+          "score": 78,
+          "quality": "FAIR",
+          "total": 29400,
+          "total_str": "8h 10m",
+          "deep": 5820,
+          "deep_str": "1h 37m",
+          "deep_pct": 19.8,
+          "light": 18420,
+          "light_str": "5h 7m",
+          "light_pct": 62.7,
+          "rem": 5160,
+          "rem_str": "1h 26m",
+          "rem_pct": 17.6,
+          "awake": 3060,
+          "awake_str": "51m",
+          "avg_hr": 59.0,
+          "avg_hrv": 50.0,
+          "hrv_status": "UNBALANCED",
+          "avg_stress": 18.0,
+          "avg_spo2": null,
+          "avg_respiration": 13.0,
+          "resting_hr": 54,
+          "body_battery_change": 68
         }
       ]
     },
@@ -647,10 +603,6 @@
       "latest": null,
       "weekly_avg": null,
       "history": [
-        {
-          "date": "2026-07-25",
-          "score": null
-        },
         {
           "date": "2026-07-26",
           "score": null
@@ -673,6 +625,10 @@
         },
         {
           "date": "2026-07-31",
+          "score": null
+        },
+        {
+          "date": "2026-08-01",
           "score": null
         }
       ]
@@ -697,11 +653,11 @@
       },
       {
         "name": "Ben",
-        "nights": 8
+        "nights": 9
       },
       {
         "name": "Samgria",
-        "nights": 2
+        "nights": 1
       },
       {
         "name": "flatland_enthusiast",
@@ -719,5 +675,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-07-31T22:28:15"
+  "updated_at": "2026-08-01T06:38:36"
 }
