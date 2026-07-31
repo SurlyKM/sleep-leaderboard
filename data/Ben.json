@@ -779,8 +779,8 @@
       "avg_spo2": null,
       "avg_respiration": 12.0,
       "resting_hr": 54,
-      "body_battery_change": 64
+      "body_battery_change": 65
     }
   },
-  "fetched_at": "2026-07-31T08:35:25"
+  "fetched_at": "2026-07-31T22:28:16"
 }
