@@ -13,8 +13,8 @@
     },
     {
       "name": "Kyle",
-      "weekly_steps": 35906,
-      "avg_daily_steps": 5129,
+      "weekly_steps": 36176,
+      "avg_daily_steps": 5168,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 168.8,
@@ -35,8 +35,8 @@
     },
     {
       "name": "flatland_enthusiast",
-      "weekly_steps": 111647,
-      "avg_daily_steps": 15950,
+      "weekly_steps": 112081,
+      "avg_daily_steps": 16012,
       "running_km": 43.8,
       "running_sessions": 3,
       "cycling_km": 0,
@@ -52,5 +52,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-08-03T06:25:52"
+  "updated_at": "2026-08-03T08:27:20"
 }
