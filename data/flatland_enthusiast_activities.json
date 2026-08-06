@@ -29,8 +29,8 @@
     "2026-08-02": 17776,
     "2026-08-03": 35472,
     "2026-08-04": 9957,
-    "2026-08-05": 23185,
-    "2026-08-06": 0
+    "2026-08-05": 25598,
+    "2026-08-06": 2460
   },
   "activities": [
     {
@@ -181,6 +181,13 @@
       "raw_type": "trail_running"
     },
     {
+      "date": "2026-08-06",
+      "type": "swimming",
+      "distance_km": 0.47,
+      "duration_s": 800,
+      "raw_type": "open_water_swimming"
+    },
+    {
       "date": "2026-08-05",
       "type": "running",
       "distance_km": 0.82,
@@ -209,5 +216,5 @@
       "raw_type": "running"
     }
   ],
-  "fetched_at": "2026-08-06T08:34:38"
+  "fetched_at": "2026-08-06T22:27:14"
 }

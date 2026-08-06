@@ -30,7 +30,7 @@
     "2026-08-03": 8361,
     "2026-08-04": 7739,
     "2026-08-05": 5127,
-    "2026-08-06": 30
+    "2026-08-06": 6831
   },
   "activities": [
     {
@@ -272,6 +272,13 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-08-06",
+      "type": "cycling",
+      "distance_km": 6.41,
+      "duration_s": 1092,
+      "raw_type": "road_biking"
+    },
+    {
       "date": "2026-08-05",
       "type": "swimming",
       "distance_km": 1.0,
@@ -321,5 +328,5 @@
       "raw_type": "mountain_biking"
     }
   ],
-  "fetched_at": "2026-08-06T08:34:36"
+  "fetched_at": "2026-08-06T22:27:12"
 }
