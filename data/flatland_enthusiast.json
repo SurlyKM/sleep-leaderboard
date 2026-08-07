@@ -780,7 +780,32 @@
       "resting_hr": 56,
       "body_battery_change": 26
     },
-    "2026-08-07": null
+    "2026-08-07": {
+      "date": "2026-08-07",
+      "score": 77,
+      "quality": "FAIR",
+      "total": 26280,
+      "total_str": "7h 18m",
+      "deep": 2580,
+      "deep_str": "43m",
+      "deep_pct": 9.8,
+      "light": 20160,
+      "light_str": "5h 36m",
+      "light_pct": 76.7,
+      "rem": 3540,
+      "rem_str": "59m",
+      "rem_pct": 13.5,
+      "awake": 660,
+      "awake_str": "11m",
+      "avg_hr": 55.0,
+      "avg_hrv": 56.0,
+      "hrv_status": "LOW",
+      "avg_stress": 17.0,
+      "avg_spo2": null,
+      "avg_respiration": 14.0,
+      "resting_hr": 51,
+      "body_battery_change": 62
+    }
   },
-  "fetched_at": "2026-08-07T11:03:27"
+  "fetched_at": "2026-08-07T21:23:40"
 }
