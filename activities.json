@@ -2,8 +2,8 @@
   "users": [
     {
       "name": "Ben",
-      "weekly_steps": 39768,
-      "avg_daily_steps": 5681,
+      "weekly_steps": 39871,
+      "avg_daily_steps": 5696,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 28.0,
@@ -35,8 +35,8 @@
     },
     {
       "name": "flatland_enthusiast",
-      "weekly_steps": 133350,
-      "avg_daily_steps": 19050,
+      "weekly_steps": 136418,
+      "avg_daily_steps": 19488,
       "running_km": 35.2,
       "running_sessions": 2,
       "cycling_km": 0,
@@ -52,5 +52,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-08-16T05:40:48"
+  "updated_at": "2026-08-16T07:45:49"
 }
