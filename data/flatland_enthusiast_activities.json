@@ -1,6 +1,5 @@
 {
   "steps": {
-    "2026-07-18": 10948,
     "2026-07-19": 20315,
     "2026-07-20": 12923,
     "2026-07-21": 18666,
@@ -30,7 +29,8 @@
     "2026-08-14": 11108,
     "2026-08-15": 53003,
     "2026-08-16": 17703,
-    "2026-08-17": 0
+    "2026-08-17": 0,
+    "2026-08-18": 0
   },
   "activities": [
     {
@@ -188,19 +188,19 @@
       "raw_type": "open_water_swimming"
     },
     {
-      "date": "2026-08-15",
-      "type": "running",
-      "distance_km": 28.08,
-      "duration_s": 22351,
-      "raw_type": "trail_running"
-    },
-    {
       "date": "2026-08-11",
       "type": "running",
       "distance_km": 7.13,
       "duration_s": 2177,
       "raw_type": "running"
+    },
+    {
+      "date": "2026-08-15",
+      "type": "running",
+      "distance_km": 28.08,
+      "duration_s": 22351,
+      "raw_type": "trail_running"
     }
   ],
-  "fetched_at": "2026-08-17T20:58:20"
+  "fetched_at": "2026-08-18T05:47:12"
 }
