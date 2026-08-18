@@ -1,31 +1,5 @@
 {
   "history": {
-    "2026-07-19": {
-      "date": "2026-07-19",
-      "score": 88,
-      "quality": "GOOD",
-      "total": 27480,
-      "total_str": "7h 38m",
-      "deep": 5400,
-      "deep_str": "1h 30m",
-      "deep_pct": 19.7,
-      "light": 14580,
-      "light_str": "4h 3m",
-      "light_pct": 53.1,
-      "rem": 7500,
-      "rem_str": "2h 5m",
-      "rem_pct": 27.3,
-      "awake": 1980,
-      "awake_str": "33m",
-      "avg_hr": 60.0,
-      "avg_hrv": 59.0,
-      "hrv_status": "BALANCED",
-      "avg_stress": 16.0,
-      "avg_spo2": null,
-      "avg_respiration": 13.0,
-      "resting_hr": 55,
-      "body_battery_change": 60
-    },
     "2026-07-20": {
       "date": "2026-07-20",
       "score": 73,
@@ -805,7 +779,8 @@
       "avg_respiration": 13.0,
       "resting_hr": 52,
       "body_battery_change": 60
-    }
+    },
+    "2026-08-19": null
   },
-  "fetched_at": "2026-08-18T20:56:55"
+  "fetched_at": "2026-08-19T05:45:21"
 }
