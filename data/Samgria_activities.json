@@ -160,6 +160,13 @@
       "raw_type": "virtual_ride"
     },
     {
+      "date": "2026-08-18",
+      "type": "cycling",
+      "distance_km": 32.58,
+      "duration_s": 3049,
+      "raw_type": "virtual_ride"
+    },
+    {
       "date": "2026-08-15",
       "type": "cycling",
       "distance_km": 80.42,
@@ -174,5 +181,5 @@
       "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-08-18T07:50:44"
+  "fetched_at": "2026-08-18T20:56:57"
 }
