@@ -409,32 +409,32 @@
     {
       "name": "flatland_enthusiast",
       "latest": {
-        "date": "2026-08-20",
+        "date": "2026-08-21",
         "score": 31,
         "quality": "POOR",
-        "total": 15480,
-        "total_str": "4h 18m",
-        "deep": 3360,
-        "deep_str": "56m",
-        "deep_pct": 21.7,
-        "light": 12120,
-        "light_str": "3h 22m",
-        "light_pct": 78.3,
+        "total": 8040,
+        "total_str": "2h 14m",
+        "deep": 2160,
+        "deep_str": "36m",
+        "deep_pct": 26.9,
+        "light": 5880,
+        "light_str": "1h 38m",
+        "light_pct": 73.1,
         "rem": 0,
         "rem_str": "0m",
         "rem_pct": 0.0,
-        "awake": 5700,
-        "awake_str": "1h 35m",
-        "avg_hr": 60.0,
-        "avg_hrv": 57.0,
+        "awake": 0,
+        "awake_str": "0m",
+        "avg_hr": 54.0,
+        "avg_hrv": 86.0,
         "hrv_status": "BALANCED",
-        "avg_stress": 35.0,
+        "avg_stress": 18.0,
         "avg_spo2": null,
-        "avg_respiration": 15.0,
+        "avg_respiration": 14.0,
         "resting_hr": 49,
-        "body_battery_change": 20
+        "body_battery_change": 29
       },
-      "weekly_avg": 59.3,
+      "weekly_avg": 55.3,
       "history": [
         {
           "date": "2026-08-15",
@@ -594,7 +594,29 @@
         },
         {
           "date": "2026-08-21",
-          "score": null
+          "score": 31,
+          "quality": "POOR",
+          "total": 8040,
+          "total_str": "2h 14m",
+          "deep": 2160,
+          "deep_str": "36m",
+          "deep_pct": 26.9,
+          "light": 5880,
+          "light_str": "1h 38m",
+          "light_pct": 73.1,
+          "rem": 0,
+          "rem_str": "0m",
+          "rem_pct": 0.0,
+          "awake": 0,
+          "awake_str": "0m",
+          "avg_hr": 54.0,
+          "avg_hrv": 86.0,
+          "hrv_status": "BALANCED",
+          "avg_stress": 18.0,
+          "avg_spo2": null,
+          "avg_respiration": 14.0,
+          "resting_hr": 49,
+          "body_battery_change": 29
         }
       ]
     },
@@ -675,5 +697,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-08-21T07:53:45"
+  "updated_at": "2026-08-21T20:58:21"
 }
