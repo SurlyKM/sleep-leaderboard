@@ -1,31 +1,5 @@
 {
   "history": {
-    "2026-07-27": {
-      "date": "2026-07-27",
-      "score": 63,
-      "quality": "FAIR",
-      "total": 18900,
-      "total_str": "5h 15m",
-      "deep": 3660,
-      "deep_str": "1h 1m",
-      "deep_pct": 19.4,
-      "light": 13140,
-      "light_str": "3h 39m",
-      "light_pct": 69.5,
-      "rem": 2100,
-      "rem_str": "35m",
-      "rem_pct": 11.1,
-      "awake": 840,
-      "awake_str": "14m",
-      "avg_hr": 60.0,
-      "avg_hrv": 57.0,
-      "hrv_status": "BALANCED",
-      "avg_stress": 23.0,
-      "avg_spo2": null,
-      "avg_respiration": 15.0,
-      "resting_hr": 50,
-      "body_battery_change": 28
-    },
     "2026-07-28": {
       "date": "2026-07-28",
       "score": 80,
@@ -780,7 +754,33 @@
       "avg_respiration": 13.0,
       "resting_hr": 43,
       "body_battery_change": 52
+    },
+    "2026-08-27": {
+      "date": "2026-08-27",
+      "score": 75,
+      "quality": "FAIR",
+      "total": 23220,
+      "total_str": "6h 27m",
+      "deep": 3060,
+      "deep_str": "51m",
+      "deep_pct": 13.2,
+      "light": 12600,
+      "light_str": "3h 30m",
+      "light_pct": 54.3,
+      "rem": 7560,
+      "rem_str": "2h 6m",
+      "rem_pct": 32.6,
+      "awake": 1440,
+      "awake_str": "24m",
+      "avg_hr": 48.0,
+      "avg_hrv": 111.0,
+      "hrv_status": "BALANCED",
+      "avg_stress": 13.0,
+      "avg_spo2": null,
+      "avg_respiration": 13.0,
+      "resting_hr": 41,
+      "body_battery_change": 60
     }
   },
-  "fetched_at": "2026-08-26T21:02:50"
+  "fetched_at": "2026-08-27T08:21:18"
 }
