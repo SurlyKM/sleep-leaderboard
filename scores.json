@@ -431,32 +431,32 @@
     {
       "name": "flatland_enthusiast",
       "latest": {
-        "date": "2026-08-27",
-        "score": 75,
+        "date": "2026-08-28",
+        "score": 71,
         "quality": "FAIR",
-        "total": 23220,
-        "total_str": "6h 27m",
-        "deep": 3060,
-        "deep_str": "51m",
-        "deep_pct": 13.2,
-        "light": 12600,
-        "light_str": "3h 30m",
-        "light_pct": 54.3,
-        "rem": 7560,
-        "rem_str": "2h 6m",
-        "rem_pct": 32.6,
-        "awake": 1440,
-        "awake_str": "24m",
-        "avg_hr": 48.0,
-        "avg_hrv": 111.0,
+        "total": 22440,
+        "total_str": "6h 14m",
+        "deep": 4860,
+        "deep_str": "1h 21m",
+        "deep_pct": 21.7,
+        "light": 15180,
+        "light_str": "4h 13m",
+        "light_pct": 67.6,
+        "rem": 2400,
+        "rem_str": "40m",
+        "rem_pct": 10.7,
+        "awake": 2160,
+        "awake_str": "36m",
+        "avg_hr": 47.0,
+        "avg_hrv": 113.0,
         "hrv_status": "BALANCED",
-        "avg_stress": 13.0,
+        "avg_stress": 15.0,
         "avg_spo2": null,
         "avg_respiration": 13.0,
-        "resting_hr": 41,
-        "body_battery_change": 60
+        "resting_hr": 44,
+        "body_battery_change": 61
       },
-      "weekly_avg": 77.8,
+      "weekly_avg": 76.7,
       "history": [
         {
           "date": "2026-08-22",
@@ -594,7 +594,29 @@
         },
         {
           "date": "2026-08-28",
-          "score": null
+          "score": 71,
+          "quality": "FAIR",
+          "total": 22440,
+          "total_str": "6h 14m",
+          "deep": 4860,
+          "deep_str": "1h 21m",
+          "deep_pct": 21.7,
+          "light": 15180,
+          "light_str": "4h 13m",
+          "light_pct": 67.6,
+          "rem": 2400,
+          "rem_str": "40m",
+          "rem_pct": 10.7,
+          "awake": 2160,
+          "awake_str": "36m",
+          "avg_hr": 47.0,
+          "avg_hrv": 113.0,
+          "hrv_status": "BALANCED",
+          "avg_stress": 15.0,
+          "avg_spo2": null,
+          "avg_respiration": 13.0,
+          "resting_hr": 44,
+          "body_battery_change": 61
         }
       ]
     },
@@ -675,5 +697,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-08-28T06:41:47"
+  "updated_at": "2026-08-28T10:20:21"
 }
