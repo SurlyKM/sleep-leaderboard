@@ -2,8 +2,8 @@
   "users": [
     {
       "name": "Ben",
-      "weekly_steps": 37675,
-      "avg_daily_steps": 5382,
+      "weekly_steps": 38603,
+      "avg_daily_steps": 5515,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 0,
@@ -52,5 +52,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-08-30T07:49:07"
+  "updated_at": "2026-08-30T09:30:17"
 }
