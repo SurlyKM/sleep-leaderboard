@@ -1,6 +1,5 @@
 {
   "steps": {
-    "2026-08-01": 5012,
     "2026-08-02": 10549,
     "2026-08-03": 8361,
     "2026-08-04": 7739,
@@ -30,7 +29,8 @@
     "2026-08-28": 5356,
     "2026-08-29": 5311,
     "2026-08-30": 5749,
-    "2026-08-31": 778
+    "2026-08-31": 7660,
+    "2026-09-01": 11
   },
   "activities": [
     {
@@ -230,6 +230,13 @@
       "raw_type": "indoor_cycling"
     },
     {
+      "date": "2026-08-25",
+      "type": "cycling",
+      "distance_km": 46.4,
+      "duration_s": 5739,
+      "raw_type": "road_biking"
+    },
+    {
       "date": "2026-08-30",
       "type": "cycling",
       "distance_km": 4.65,
@@ -277,14 +284,7 @@
       "distance_km": 1.5,
       "duration_s": 1740,
       "raw_type": "lap_swimming"
-    },
-    {
-      "date": "2026-08-25",
-      "type": "cycling",
-      "distance_km": 46.4,
-      "duration_s": 5739,
-      "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-08-31T09:42:33"
+  "fetched_at": "2026-09-01T03:40:59"
 }
