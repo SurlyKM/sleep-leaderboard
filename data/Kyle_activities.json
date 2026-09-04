@@ -1,6 +1,5 @@
 {
   "steps": {
-    "2026-08-05": 5127,
     "2026-08-06": 6831,
     "2026-08-07": 4547,
     "2026-08-08": 4678,
@@ -30,23 +29,10 @@
     "2026-09-01": 4144,
     "2026-09-02": 5103,
     "2026-09-03": 4018,
-    "2026-09-04": 127
+    "2026-09-04": 7760,
+    "2026-09-05": 17
   },
   "activities": [
-    {
-      "date": "2026-08-05",
-      "type": "swimming",
-      "distance_km": 1.0,
-      "duration_s": 1207,
-      "raw_type": "lap_swimming"
-    },
-    {
-      "date": "2026-08-05",
-      "type": "cycling",
-      "distance_km": 28.51,
-      "duration_s": 3971,
-      "raw_type": "road_biking"
-    },
     {
       "date": "2026-08-06",
       "type": "cycling",
@@ -230,6 +216,41 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-08-29",
+      "type": "cycling",
+      "distance_km": 87.14,
+      "duration_s": 16887,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-08-29",
+      "type": "cycling",
+      "distance_km": 3.38,
+      "duration_s": 548,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-09-04",
+      "type": "cycling",
+      "distance_km": 1.13,
+      "duration_s": 274,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-09-04",
+      "type": "cycling",
+      "distance_km": 2.13,
+      "duration_s": 560,
+      "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-09-04",
+      "type": "cycling",
+      "distance_km": 8.59,
+      "duration_s": 1684,
+      "raw_type": "road_biking"
+    },
+    {
       "date": "2026-09-03",
       "type": "cycling",
       "distance_km": 1.97,
@@ -298,21 +319,7 @@
       "distance_km": 91.93,
       "duration_s": 17573,
       "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-08-29",
-      "type": "cycling",
-      "distance_km": 87.14,
-      "duration_s": 16887,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-08-29",
-      "type": "cycling",
-      "distance_km": 3.38,
-      "duration_s": 548,
-      "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-09-04T09:25:45"
+  "fetched_at": "2026-09-05T07:35:19"
 }
