@@ -1,6 +1,5 @@
 {
   "steps": {
-    "2026-08-07": 25149,
     "2026-08-08": 21434,
     "2026-08-09": 10587,
     "2026-08-10": 15919,
@@ -30,23 +29,10 @@
     "2026-09-03": 12336,
     "2026-09-04": 25121,
     "2026-09-05": 14925,
-    "2026-09-06": 344
+    "2026-09-06": 25904,
+    "2026-09-07": 0
   },
   "activities": [
-    {
-      "date": "2026-08-07",
-      "type": "swimming",
-      "distance_km": 0.51,
-      "duration_s": 898,
-      "raw_type": "open_water_swimming"
-    },
-    {
-      "date": "2026-08-07",
-      "type": "running",
-      "distance_km": 11.12,
-      "duration_s": 3574,
-      "raw_type": "running"
-    },
     {
       "date": "2026-08-08",
       "type": "cycling",
@@ -111,6 +97,20 @@
       "raw_type": "running"
     },
     {
+      "date": "2026-08-31",
+      "type": "running",
+      "distance_km": 9.27,
+      "duration_s": 3018,
+      "raw_type": "running"
+    },
+    {
+      "date": "2026-09-06",
+      "type": "running",
+      "distance_km": 18.41,
+      "duration_s": 8348,
+      "raw_type": "trail_running"
+    },
+    {
       "date": "2026-09-05",
       "type": "cycling",
       "distance_km": 1.71,
@@ -137,14 +137,7 @@
       "distance_km": 8.63,
       "duration_s": 2888,
       "raw_type": "running"
-    },
-    {
-      "date": "2026-08-31",
-      "type": "running",
-      "distance_km": 9.27,
-      "duration_s": 3018,
-      "raw_type": "running"
     }
   ],
-  "fetched_at": "2026-09-06T09:07:50"
+  "fetched_at": "2026-09-07T07:28:33"
 }
