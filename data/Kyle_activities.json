@@ -30,7 +30,7 @@
     "2026-09-10": 4503,
     "2026-09-11": 5524,
     "2026-09-12": 8251,
-    "2026-09-13": 177
+    "2026-09-13": 863
   },
   "activities": [
     {
@@ -244,6 +244,13 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-09-13",
+      "type": "cycling",
+      "distance_km": 1.59,
+      "duration_s": 355,
+      "raw_type": "road_biking"
+    },
+    {
       "date": "2026-09-12",
       "type": "cycling",
       "distance_km": 0.0,
@@ -293,5 +300,5 @@
       "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-09-13T07:29:45"
+  "fetched_at": "2026-09-13T09:09:59"
 }
