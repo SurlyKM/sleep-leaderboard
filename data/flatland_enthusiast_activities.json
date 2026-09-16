@@ -30,7 +30,7 @@
     "2026-09-14": 20844,
     "2026-09-15": 13649,
     "2026-09-16": 17532,
-    "2026-09-17": 30
+    "2026-09-17": 12096
   },
   "activities": [
     {
@@ -118,6 +118,13 @@
       "raw_type": "running"
     },
     {
+      "date": "2026-09-17",
+      "type": "running",
+      "distance_km": 10.12,
+      "duration_s": 3529,
+      "raw_type": "running"
+    },
+    {
       "date": "2026-09-16",
       "type": "running",
       "distance_km": 11.61,
@@ -146,5 +153,5 @@
       "raw_type": "trail_running"
     }
   ],
-  "fetched_at": "2026-09-17T08:14:08"
+  "fetched_at": "2026-09-17T09:44:06"
 }
