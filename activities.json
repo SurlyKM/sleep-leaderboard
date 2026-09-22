@@ -35,8 +35,8 @@
     },
     {
       "name": "flatland_enthusiast",
-      "weekly_steps": 110967,
-      "avg_daily_steps": 15852,
+      "weekly_steps": 113389,
+      "avg_daily_steps": 16198,
       "running_km": 57.0,
       "running_sessions": 4,
       "cycling_km": 24.0,
@@ -52,5 +52,5 @@
     "flatland_enthusiast": "Flatland Enthusiast \u26f0\ufe0f",
     "Ben": "Ben \ud83d\udc27"
   },
-  "updated_at": "2026-09-22T08:38:57"
+  "updated_at": "2026-09-22T10:13:35"
 }
