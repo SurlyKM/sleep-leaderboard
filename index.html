@@ -546,6 +546,40 @@
   }
   .score.s-stale { color: var(--dim); }
 
+  /* Token-expired (needs reconnecting) badge */
+  .reconnect-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--poor);
+    background: rgba(224,80,80,0.08);
+    border: 1px solid rgba(224,80,80,0.25);
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-top: 3px;
+  }
+
+  /* Admin: accounts needing reconnection */
+  .admin-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--poor);
+    background: rgba(224,80,80,0.06);
+    border: 1px solid rgba(224,80,80,0.2);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+  }
+
   /* Empty / no data */
   .no-data { color: var(--dim); font-size: 13px; }
 
@@ -608,6 +642,8 @@
   </header>
 
   <div id="groupSwitch" class="group-switch"></div>
+
+  <div id="adminNotice" class="admin-notice" style="display:none"></div>
 
   <div class="section-label">Last night</div>
   <div id="board" class="leaderboard"></div>
@@ -780,14 +816,18 @@ function renderRow(u) {
   const history = u.history || [];
   const newestEntry = history[history.length - 1];
   const awaitingSync = !newestEntry || newestEntry.score === null;
+  const tokenError = u.token_error === true;
 
   if (!latest) {
+    const noDataLabel = tokenError
+      ? '<span class="reconnect-badge">⚠ Needs reconnecting</span>'
+      : 'No data in last 7 days';
     return `
       <div class="row">
         <div class="rank ${rankClass(i)}">${rankLabel(i)}</div>
         <div class="name-cell">
           <div class="name">${dn(u.name)}</div>
-          <div class="date-line no-data">No data in last 7 days</div>
+          <div class="date-line ${tokenError ? '' : 'no-data'}">${noDataLabel}</div>
         </div>
         <div class="sparkline-cell">${sparklineSVG(history)}<span class="sparkline-label">7d</span></div>
         <div class="score-cell"><div class="score s-none">--</div></div>
@@ -822,9 +862,11 @@ function renderRow(u) {
       <div class="rank ${rankClass(i)}">${rankLabel(i)}</div>
       <div class="name-cell">
         <div class="name">${dn(u.name)}</div>
-        ${awaitingSync
-          ? '<div class="date-line"><span class="sync-badge">⏳ Not synced yet</span></div>'
-          : `<div class="date-line">${sleepNightLabel(latest.date)} &middot; ${latest.total_str}</div>`
+        ${tokenError
+          ? '<div class="date-line"><span class="reconnect-badge">⚠ Needs reconnecting</span></div>'
+          : awaitingSync
+            ? '<div class="date-line"><span class="sync-badge">⏳ Not synced yet</span></div>'
+            : `<div class="date-line">${sleepNightLabel(latest.date)} &middot; ${latest.total_str}</div>`
         }
       </div>
       <div class="sparkline-cell">
@@ -832,7 +874,7 @@ function renderRow(u) {
         <span class="sparkline-label">7d</span>
       </div>
       <div class="score-cell">
-        <div class="score ${awaitingSync ? 's-stale' : scoreClass(latest.quality)}">${latest.score}</div>
+        <div class="score ${(awaitingSync || tokenError) ? 's-stale' : scoreClass(latest.quality)}">${latest.score}</div>
         <div class="quality ${latest.quality || ''}">${latest.quality || ''}</div>
         ${deltaHTML}
         ${weekly}
@@ -975,6 +1017,19 @@ function renderForGroup() {
     toggle.style.display = 'none';
     inactiveBoard.style.display = 'none';
     inactiveBoard.innerHTML = '';
+  }
+
+  // Admin line: accounts whose token has expired (within the current view)
+  const needReconnect = allUsers.filter(u => u.token_error === true).map(u => dn(u.name));
+  const adminEl = document.getElementById('adminNotice');
+  if (needReconnect.length) {
+    const who = needReconnect.join(', ');
+    const n = needReconnect.length;
+    adminEl.innerHTML = `⚠ ${n} account${n === 1 ? ' needs' : 's need'} reconnecting: ${who}`;
+    adminEl.style.display = '';
+  } else {
+    adminEl.style.display = 'none';
+    adminEl.innerHTML = '';
   }
 
   // Awards: per-group from server when a group is selected, else overall

@@ -366,6 +366,7 @@ def main():
     now = datetime.now().isoformat(timespec="seconds")
     sleep_users = []
     activity_users = []
+    token_errors = []  # names whose login failed (expired token)
 
     for user_dir in sorted(TOKENS_DIR.iterdir()):
         if not user_dir.is_dir():
@@ -385,7 +386,20 @@ def main():
             activity_users.append(build_activity_payload(name, act_cache))
 
         except Exception as e:
+            # Login failed (almost always an expired token). Keep the person on
+            # the board using whatever is already cached, flagged so the page
+            # can show a "needs reconnecting" status instead of dropping them.
             print(f"  Login failed: {e}")
+            token_errors.append(name)
+            sleep_cache = load_json(DATA_DIR / f"{name}.json", {"history": {}})
+            act_cache = load_json(DATA_DIR / f"{name}_activities.json",
+                                  {"steps": {}, "activities": []})
+            sp = build_sleep_payload(name, sleep_cache)
+            sp["token_error"] = True
+            sleep_users.append(sp)
+            ap = build_activity_payload(name, act_cache)
+            ap["token_error"] = True
+            activity_users.append(ap)
 
     if not sleep_users:
         print("\nNo data fetched. Check your tokens.")
@@ -441,12 +455,16 @@ def main():
         "groups": groups,
         "group_awards": group_awards,
         "display_names": display_names,
+        "token_errors": token_errors,
         "updated_at": now,
     })
-    save_json(ACTIVITIES_OUT, {"users": activity_users, "groups": groups, "display_names": display_names, "updated_at": now})
+    save_json(ACTIVITIES_OUT, {"users": activity_users, "groups": groups, "display_names": display_names, "token_errors": token_errors, "updated_at": now})
 
     print(f"\nDone.")
     print(f"  {SCORES_OUT.name} and {ACTIVITIES_OUT.name} are ready.")
+    if token_errors:
+        print(f"  NEEDS RECONNECTING ({len(token_errors)}): {', '.join(token_errors)}")
+        print(f"  These accounts have expired tokens and must re-run setup.")
     print(f"  Copy both to your GitHub Pages repo on the other VM and push.")
 
 
