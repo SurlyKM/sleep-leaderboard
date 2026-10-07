@@ -2,24 +2,24 @@
   "users": [
     {
       "name": "Ben",
-      "weekly_steps": 39052,
-      "avg_daily_steps": 7810,
+      "weekly_steps": 30556,
+      "avg_daily_steps": 7639,
       "running_km": 0,
       "running_sessions": 0,
-      "cycling_km": 9.2,
-      "cycling_sessions": 1,
+      "cycling_km": 0,
+      "cycling_sessions": 0,
       "swimming_km": 0,
       "swimming_sessions": 0,
       "token_error": true
     },
     {
       "name": "Kyle",
-      "weekly_steps": 62405,
-      "avg_daily_steps": 8915,
+      "weekly_steps": 58912,
+      "avg_daily_steps": 8416,
       "running_km": 0,
       "running_sessions": 0,
-      "cycling_km": 73.6,
-      "cycling_sessions": 5,
+      "cycling_km": 83.0,
+      "cycling_sessions": 4,
       "swimming_km": 0,
       "swimming_sessions": 0
     }
@@ -32,5 +32,5 @@
   "token_errors": [
     "Ben"
   ],
-  "updated_at": "2026-10-07T13:27:06"
+  "updated_at": "2026-10-08T10:12:15"
 }
