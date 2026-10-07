@@ -1,7 +1,5 @@
 {
   "steps": {
-    "2026-09-05": 5441,
-    "2026-09-06": 12302,
     "2026-09-07": 4850,
     "2026-09-08": 4888,
     "2026-09-09": 6988,
@@ -30,23 +28,11 @@
     "2026-10-02": 4381,
     "2026-10-03": 21299,
     "2026-10-04": 22548,
-    "2026-10-05": 81
+    "2026-10-05": 81,
+    "2026-10-07": 1092,
+    "2026-10-06": 6206
   },
   "activities": [
-    {
-      "date": "2026-09-05",
-      "type": "cycling",
-      "distance_km": 123.89,
-      "duration_s": 23422,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-09-06",
-      "type": "cycling",
-      "distance_km": 98.03,
-      "duration_s": 20827,
-      "raw_type": "road_biking"
-    },
     {
       "date": "2026-09-07",
       "type": "cycling",
@@ -216,20 +202,6 @@
       "raw_type": "road_biking"
     },
     {
-      "date": "2026-10-02",
-      "type": "cycling",
-      "distance_km": 20.52,
-      "duration_s": 5023,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-01",
-      "type": "cycling",
-      "distance_km": 0.0,
-      "duration_s": 2562,
-      "raw_type": "indoor_cycling"
-    },
-    {
       "date": "2026-09-30",
       "type": "cycling",
       "distance_km": 13.27,
@@ -263,7 +235,42 @@
       "distance_km": 25.64,
       "duration_s": 3645,
       "raw_type": "road_biking"
+    },
+    {
+      "date": "2026-10-06",
+      "type": "cycling",
+      "distance_km": 26.27,
+      "duration_s": 5828,
+      "raw_type": "mountain_biking"
+    },
+    {
+      "date": "2026-10-05",
+      "type": "cycling",
+      "distance_km": 20.06,
+      "duration_s": 5111,
+      "raw_type": "mountain_biking"
+    },
+    {
+      "date": "2026-10-02",
+      "type": "cycling",
+      "distance_km": 20.52,
+      "duration_s": 5023,
+      "raw_type": "mountain_biking"
+    },
+    {
+      "date": "2026-10-01",
+      "type": "cycling",
+      "distance_km": 0.0,
+      "duration_s": 2562,
+      "raw_type": "indoor_cycling"
+    },
+    {
+      "date": "2026-10-01",
+      "type": "cycling",
+      "distance_km": 6.72,
+      "duration_s": 1128,
+      "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-10-05T10:29:17"
+  "fetched_at": "2026-10-07T13:03:03"
 }
