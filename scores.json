@@ -3,32 +3,32 @@
     {
       "name": "Ben",
       "latest": {
-        "date": "2026-10-05",
-        "score": 89,
-        "quality": "GOOD",
-        "total": 27840,
-        "total_str": "7h 44m",
-        "deep": 4560,
-        "deep_str": "1h 16m",
-        "deep_pct": 16.4,
-        "light": 17400,
-        "light_str": "4h 50m",
-        "light_pct": 62.5,
+        "date": "2026-10-08",
+        "score": 94,
+        "quality": "EXCELLENT",
+        "total": 29340,
+        "total_str": "8h 9m",
+        "deep": 6120,
+        "deep_str": "1h 42m",
+        "deep_pct": 20.9,
+        "light": 17340,
+        "light_str": "4h 49m",
+        "light_pct": 59.1,
         "rem": 5880,
         "rem_str": "1h 38m",
-        "rem_pct": 21.1,
-        "awake": 1320,
-        "awake_str": "22m",
+        "rem_pct": 20.0,
+        "awake": 660,
+        "awake_str": "11m",
         "avg_hr": 50.0,
-        "avg_hrv": 78.0,
+        "avg_hrv": 84.0,
         "hrv_status": "UNBALANCED",
         "avg_stress": 7.0,
         "avg_spo2": null,
         "avg_respiration": 12.0,
-        "resting_hr": 46,
-        "body_battery_change": 81
+        "resting_hr": 45,
+        "body_battery_change": 73
       },
-      "weekly_avg": 85.2,
+      "weekly_avg": 88.4,
       "history": [
         {
           "date": "2026-10-02",
@@ -136,18 +136,83 @@
         },
         {
           "date": "2026-10-06",
-          "score": null
+          "score": 91,
+          "quality": "EXCELLENT",
+          "total": 31380,
+          "total_str": "8h 43m",
+          "deep": 4020,
+          "deep_str": "1h 7m",
+          "deep_pct": 12.8,
+          "light": 20640,
+          "light_str": "5h 44m",
+          "light_pct": 65.8,
+          "rem": 6720,
+          "rem_str": "1h 52m",
+          "rem_pct": 21.4,
+          "awake": 840,
+          "awake_str": "14m",
+          "avg_hr": 53.0,
+          "avg_hrv": 77.0,
+          "hrv_status": "UNBALANCED",
+          "avg_stress": 12.0,
+          "avg_spo2": null,
+          "avg_respiration": 12.0,
+          "resting_hr": 47,
+          "body_battery_change": 74
         },
         {
           "date": "2026-10-07",
-          "score": null
+          "score": 93,
+          "quality": "EXCELLENT",
+          "total": 30146,
+          "total_str": "8h 22m",
+          "deep": 6060,
+          "deep_str": "1h 41m",
+          "deep_pct": 20.1,
+          "light": 18720,
+          "light_str": "5h 12m",
+          "light_pct": 62.1,
+          "rem": 5400,
+          "rem_str": "1h 30m",
+          "rem_pct": 17.9,
+          "awake": 840,
+          "awake_str": "14m",
+          "avg_hr": 51.0,
+          "avg_hrv": 85.0,
+          "hrv_status": "BALANCED",
+          "avg_stress": 10.0,
+          "avg_spo2": null,
+          "avg_respiration": 12.0,
+          "resting_hr": 47,
+          "body_battery_change": 72
         },
         {
           "date": "2026-10-08",
-          "score": null
+          "score": 94,
+          "quality": "EXCELLENT",
+          "total": 29340,
+          "total_str": "8h 9m",
+          "deep": 6120,
+          "deep_str": "1h 42m",
+          "deep_pct": 20.9,
+          "light": 17340,
+          "light_str": "4h 49m",
+          "light_pct": 59.1,
+          "rem": 5880,
+          "rem_str": "1h 38m",
+          "rem_pct": 20.0,
+          "awake": 660,
+          "awake_str": "11m",
+          "avg_hr": 50.0,
+          "avg_hrv": 84.0,
+          "hrv_status": "UNBALANCED",
+          "avg_stress": 7.0,
+          "avg_spo2": null,
+          "avg_respiration": 12.0,
+          "resting_hr": 45,
+          "body_battery_change": 73
         }
-      ],
-      "token_error": true
+      ]
     },
     {
       "name": "Kyle",
@@ -379,11 +444,11 @@
     "counts": [
       {
         "name": "Ben",
-        "nights": 19
+        "nights": 22
       },
       {
         "name": "Kyle",
-        "nights": 10
+        "nights": 7
       }
     ],
     "no_winner": 1,
@@ -395,8 +460,6 @@
     "Kyle": "Kyle \ud83d\udc68\ud83c\udffb\u200d\ud83d\udcbb",
     "Ben": "Ben \ud83d\udc27"
   },
-  "token_errors": [
-    "Ben"
-  ],
-  "updated_at": "2026-10-08T11:19:24"
+  "token_errors": [],
+  "updated_at": "2026-10-08T20:13:32"
 }
