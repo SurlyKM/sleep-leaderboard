@@ -1,6 +1,5 @@
 {
   "steps": {
-    "2026-09-08": 4888,
     "2026-09-09": 6988,
     "2026-09-10": 4503,
     "2026-09-11": 5524,
@@ -30,16 +29,10 @@
     "2026-10-05": 81,
     "2026-10-07": 4091,
     "2026-10-06": 6206,
-    "2026-10-08": 4141
+    "2026-10-08": 4338,
+    "2026-10-09": 1504
   },
   "activities": [
-    {
-      "date": "2026-09-08",
-      "type": "cycling",
-      "distance_km": 127.34,
-      "duration_s": 24792,
-      "raw_type": "road_biking"
-    },
     {
       "date": "2026-09-09",
       "type": "cycling",
@@ -244,6 +237,20 @@
       "raw_type": "road_biking"
     },
     {
+      "date": "2026-10-02",
+      "type": "cycling",
+      "distance_km": 20.52,
+      "duration_s": 5023,
+      "raw_type": "mountain_biking"
+    },
+    {
+      "date": "2026-10-09",
+      "type": "cycling",
+      "distance_km": 39.73,
+      "duration_s": 5167,
+      "raw_type": "road_biking"
+    },
+    {
       "date": "2026-10-08",
       "type": "cycling",
       "distance_km": 0.0,
@@ -277,14 +284,7 @@
       "distance_km": 20.06,
       "duration_s": 5111,
       "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-02",
-      "type": "cycling",
-      "distance_km": 20.52,
-      "duration_s": 5023,
-      "raw_type": "mountain_biking"
     }
   ],
-  "fetched_at": "2026-10-08T20:13:33"
+  "fetched_at": "2026-10-09T10:27:37"
 }
