@@ -13,8 +13,8 @@
     },
     {
       "name": "Kyle",
-      "weekly_steps": 29796,
-      "avg_daily_steps": 4257,
+      "weekly_steps": 30448,
+      "avg_daily_steps": 4350,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 130.7,
@@ -29,5 +29,5 @@
     "Ben": "Ben \ud83d\udc27"
   },
   "token_errors": [],
-  "updated_at": "2026-10-11T08:52:43"
+  "updated_at": "2026-10-11T10:42:50"
 }
