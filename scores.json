@@ -195,32 +195,32 @@
     {
       "name": "Kyle",
       "latest": {
-        "date": "2026-10-17",
-        "score": 76,
-        "quality": "FAIR",
-        "total": 26160,
-        "total_str": "7h 16m",
-        "deep": 1800,
-        "deep_str": "30m",
-        "deep_pct": 6.9,
-        "light": 18180,
-        "light_str": "5h 3m",
-        "light_pct": 69.5,
-        "rem": 6180,
-        "rem_str": "1h 43m",
-        "rem_pct": 23.6,
-        "awake": 2520,
-        "awake_str": "42m",
-        "avg_hr": 55.0,
-        "avg_hrv": 46.0,
+        "date": "2026-10-18",
+        "score": 81,
+        "quality": "GOOD",
+        "total": 27540,
+        "total_str": "7h 39m",
+        "deep": 3900,
+        "deep_str": "1h 5m",
+        "deep_pct": 14.2,
+        "light": 18060,
+        "light_str": "5h 1m",
+        "light_pct": 65.6,
+        "rem": 5580,
+        "rem_str": "1h 33m",
+        "rem_pct": 20.3,
+        "awake": 240,
+        "awake_str": "4m",
+        "avg_hr": 57.0,
+        "avg_hrv": 39.0,
         "hrv_status": "BALANCED",
-        "avg_stress": 14.0,
-        "avg_spo2": 94.0,
+        "avg_stress": 19.0,
+        "avg_spo2": 93.0,
         "avg_respiration": 13.0,
-        "resting_hr": 52,
-        "body_battery_change": 57
+        "resting_hr": 53,
+        "body_battery_change": 43
       },
-      "weekly_avg": 82.8,
+      "weekly_avg": 82.6,
       "history": [
         {
           "date": "2026-10-12",
@@ -380,7 +380,29 @@
         },
         {
           "date": "2026-10-18",
-          "score": null
+          "score": 81,
+          "quality": "GOOD",
+          "total": 27540,
+          "total_str": "7h 39m",
+          "deep": 3900,
+          "deep_str": "1h 5m",
+          "deep_pct": 14.2,
+          "light": 18060,
+          "light_str": "5h 1m",
+          "light_pct": 65.6,
+          "rem": 5580,
+          "rem_str": "1h 33m",
+          "rem_pct": 20.3,
+          "awake": 240,
+          "awake_str": "4m",
+          "avg_hr": 57.0,
+          "avg_hrv": 39.0,
+          "hrv_status": "BALANCED",
+          "avg_stress": 19.0,
+          "avg_spo2": 93.0,
+          "avg_respiration": 13.0,
+          "resting_hr": 53,
+          "body_battery_change": 43
         }
       ]
     }
@@ -417,5 +439,5 @@
     "Ben": "Ben \ud83d\udc27"
   },
   "token_errors": [],
-  "updated_at": "2026-10-18T07:45:06"
+  "updated_at": "2026-10-18T09:31:25"
 }
