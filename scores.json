@@ -28,34 +28,8 @@
         "resting_hr": 50,
         "body_battery_change": 74
       },
-      "weekly_avg": 81.0,
+      "weekly_avg": 79.4,
       "history": [
-        {
-          "date": "2026-10-21",
-          "score": 89,
-          "quality": "GOOD",
-          "total": 24180,
-          "total_str": "6h 43m",
-          "deep": 4680,
-          "deep_str": "1h 18m",
-          "deep_pct": 19.4,
-          "light": 13080,
-          "light_str": "3h 38m",
-          "light_pct": 54.1,
-          "rem": 6420,
-          "rem_str": "1h 47m",
-          "rem_pct": 26.6,
-          "awake": 0,
-          "awake_str": "0m",
-          "avg_hr": 52.0,
-          "avg_hrv": 74.0,
-          "hrv_status": "BALANCED",
-          "avg_stress": 11.0,
-          "avg_spo2": null,
-          "avg_respiration": 13.0,
-          "resting_hr": 49,
-          "body_battery_change": 65
-        },
         {
           "date": "2026-10-22",
           "score": 87,
@@ -189,6 +163,10 @@
         {
           "date": "2026-10-27",
           "score": null
+        },
+        {
+          "date": "2026-10-28",
+          "score": null
         }
       ],
       "token_error": true
@@ -221,34 +199,8 @@
         "resting_hr": 48,
         "body_battery_change": 61
       },
-      "weekly_avg": 81.8,
+      "weekly_avg": 80.8,
       "history": [
-        {
-          "date": "2026-10-21",
-          "score": 86,
-          "quality": "GOOD",
-          "total": 28080,
-          "total_str": "7h 48m",
-          "deep": 5340,
-          "deep_str": "1h 29m",
-          "deep_pct": 19.0,
-          "light": 18060,
-          "light_str": "5h 1m",
-          "light_pct": 64.3,
-          "rem": 4680,
-          "rem_str": "1h 18m",
-          "rem_pct": 16.7,
-          "awake": 720,
-          "awake_str": "12m",
-          "avg_hr": 53.0,
-          "avg_hrv": 45.0,
-          "hrv_status": "BALANCED",
-          "avg_stress": 13.0,
-          "avg_spo2": 97.0,
-          "avg_respiration": 13.0,
-          "resting_hr": 51,
-          "body_battery_change": 72
-        },
         {
           "date": "2026-10-22",
           "score": 78,
@@ -360,6 +312,10 @@
         {
           "date": "2026-10-27",
           "score": null
+        },
+        {
+          "date": "2026-10-28",
+          "score": null
         }
       ],
       "token_error": true
@@ -380,7 +336,7 @@
     "counts": [
       {
         "name": "Ben",
-        "nights": 18
+        "nights": 17
       },
       {
         "name": "Kyle",
@@ -388,7 +344,7 @@
       }
     ],
     "no_winner": 0,
-    "days_with_data": 29
+    "days_with_data": 28
   },
   "groups": {},
   "group_awards": {},
@@ -400,5 +356,5 @@
     "Ben",
     "Kyle"
   ],
-  "updated_at": "2026-10-27T10:59:23"
+  "updated_at": "2026-10-28T09:26:13"
 }
