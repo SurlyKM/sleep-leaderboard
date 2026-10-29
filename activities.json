@@ -2,8 +2,8 @@
   "users": [
     {
       "name": "Ben",
-      "weekly_steps": 15325,
-      "avg_daily_steps": 3831,
+      "weekly_steps": 11989,
+      "avg_daily_steps": 3996,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 0,
@@ -14,8 +14,8 @@
     },
     {
       "name": "Kyle",
-      "weekly_steps": 18500,
-      "avg_daily_steps": 4625,
+      "weekly_steps": 3127,
+      "avg_daily_steps": 1042,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 26.9,
@@ -34,5 +34,5 @@
     "Ben",
     "Kyle"
   ],
-  "updated_at": "2026-10-29T11:12:18"
+  "updated_at": "2026-10-30T09:52:24"
 }
