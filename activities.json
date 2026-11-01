@@ -2,8 +2,8 @@
   "users": [
     {
       "name": "Ben",
-      "weekly_steps": 142,
-      "avg_daily_steps": 142,
+      "weekly_steps": 0,
+      "avg_daily_steps": null,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 0,
@@ -15,7 +15,7 @@
     {
       "name": "Kyle",
       "weekly_steps": 0,
-      "avg_daily_steps": 0,
+      "avg_daily_steps": null,
       "running_km": 0,
       "running_sessions": 0,
       "cycling_km": 0,
@@ -34,5 +34,5 @@
     "Ben",
     "Kyle"
   ],
-  "updated_at": "2026-11-01T10:32:27"
+  "updated_at": "2026-11-02T09:12:48"
 }
