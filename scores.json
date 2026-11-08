@@ -6,10 +6,6 @@
       "weekly_avg": null,
       "history": [
         {
-          "date": "2026-11-02",
-          "score": null
-        },
-        {
           "date": "2026-11-03",
           "score": null
         },
@@ -31,6 +27,10 @@
         },
         {
           "date": "2026-11-08",
+          "score": null
+        },
+        {
+          "date": "2026-11-09",
           "score": null
         }
       ],
@@ -42,10 +42,6 @@
       "weekly_avg": null,
       "history": [
         {
-          "date": "2026-11-02",
-          "score": null
-        },
-        {
           "date": "2026-11-03",
           "score": null
         },
@@ -67,6 +63,10 @@
         },
         {
           "date": "2026-11-08",
+          "score": null
+        },
+        {
+          "date": "2026-11-09",
           "score": null
         }
       ],
@@ -92,11 +92,11 @@
       },
       {
         "name": "Kyle",
-        "nights": 8
+        "nights": 7
       }
     ],
     "no_winner": 0,
-    "days_with_data": 17
+    "days_with_data": 16
   },
   "groups": {},
   "group_awards": {},
@@ -108,5 +108,5 @@
     "Ben",
     "Kyle"
   ],
-  "updated_at": "2026-11-08T10:48:20"
+  "updated_at": "2026-11-09T09:17:19"
 }
