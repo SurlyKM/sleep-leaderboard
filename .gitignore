@@ -2,3 +2,8 @@ tokens_secret.txt
 tokens/
 *.pyc
 __pycache__/
+garmin_api_keys.json
+personal_api_key.txt
+tokens_secret.txt
+tokens/
+

@@ -9,8 +9,6 @@ How it gets each person's key
 Keys come from an environment variable, never from a file in the repo. Set
 ONE secret/variable called GARMIN_API_KEYS to a JSON object of name -> key:
 
-    GARMIN_API_KEYS={"Kyle":"<kyle-key>","Ben":"<ben-key>"}
-
 In GitHub that is a single Actions secret (Settings -> Secrets and variables
 -> Actions). Adding or removing a friend is a one-line edit to that secret, no
 workflow change. For a local run you can instead drop the same JSON in
