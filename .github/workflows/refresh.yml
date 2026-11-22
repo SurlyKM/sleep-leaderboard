@@ -1,9 +1,9 @@
 name: Refresh Sleep Leaderboard
 
-# Runs daily and can also be triggered by hand from the Actions tab.
-# GitHub cron is always in UTC. 23:00 UTC is roughly 9am Sydney (AEST)
-# or 10am Sydney (AEDT during daylight saving). Adjust below if you like;
-# use https://crontab.guru to check.
+# Runs twice each morning Sydney time and can also be triggered by hand from
+# the Actions tab. Uses Garmin's official Personal API - each person's API key
+# is read from the GARMIN_API_KEYS secret, so there are no tokens to restore
+# and no Python packages to install.
 on:
   schedule:
     - cron: '30 5 * * *'
@@ -20,8 +20,7 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     # GitHub runners are UTC, which makes "today" lag behind Sydney by 10-11
-    # hours and causes a morning run to fetch the previous day's sleep. This
-    # makes the Python code see Sydney local time instead.
+    # hours. This makes the Python code see Sydney local time instead.
     env:
       TZ: Australia/Sydney
     steps:
@@ -33,24 +32,19 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Restore Garmin tokens from secret
-        run: echo "${{ secrets.GARMIN_TOKENS }}" | base64 -d | tar xzf -
-
       - name: Fetch data and build JSON
+        # The only secret in play. It is a JSON object of name -> Garmin
+        # Personal API key, e.g. {"Kyle":"...","Ben":"..."}. It is exposed to
+        # this one step as an env var and never written to disk.
+        env:
+          GARMIN_API_KEYS: ${{ secrets.GARMIN_API_KEYS }}
         run: python refresh.py
-
-      - name: Remove tokens from runner
-        if: always()
-        run: rm -rf tokens
 
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add scores.json activities.json data
+          git add -f scores.json activities.json data
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
