@@ -1,232 +1,95 @@
 {
   "steps": {
-    "2026-09-26": 9217,
-    "2026-09-27": 3456,
-    "2026-09-28": 3349,
-    "2026-09-29": 5280,
-    "2026-09-30": 4197,
-    "2026-10-01": 6141,
-    "2026-10-02": 4381,
-    "2026-10-03": 21299,
-    "2026-10-04": 22548,
-    "2026-10-05": 81,
-    "2026-10-07": 4091,
-    "2026-10-06": 6206,
-    "2026-10-08": 4338,
-    "2026-10-09": 12324,
-    "2026-10-10": 2756,
-    "2026-10-11": 4274,
-    "2026-10-12": 105,
-    "2026-10-14": 4169,
-    "2026-10-13": 5170,
-    "2026-10-15": 5174,
-    "2026-10-16": 4169,
-    "2026-10-17": 5781,
-    "2026-10-18": 6242,
-    "2026-10-19": 3257,
-    "2026-10-20": 2482,
-    "2026-10-21": 4785,
-    "2026-10-22": 6611,
-    "2026-10-23": 15373,
-    "2026-10-24": 3036,
-    "2026-10-25": 91,
-    "2026-10-26": 0
+    "2026-10-26": 9227,
+    "2026-10-27": 7507,
+    "2026-10-28": 9819,
+    "2026-10-29": 8033,
+    "2026-10-30": 6393,
+    "2026-10-31": 12448,
+    "2026-11-01": 5533,
+    "2026-11-02": 7087,
+    "2026-11-03": 5865,
+    "2026-11-04": 15511,
+    "2026-11-05": 5863,
+    "2026-11-06": 8169,
+    "2026-11-07": 8117,
+    "2026-11-08": 3306,
+    "2026-11-09": 3965,
+    "2026-11-10": 4529,
+    "2026-11-11": 6288,
+    "2026-11-12": 6596,
+    "2026-11-13": 6969,
+    "2026-11-14": 3363,
+    "2026-11-15": 10325,
+    "2026-11-16": 6533,
+    "2026-11-17": 4564,
+    "2026-11-18": 9047,
+    "2026-11-19": 15677,
+    "2026-11-20": 9191,
+    "2026-11-21": 4227
   },
   "activities": [
     {
-      "date": "2026-09-26",
-      "type": "cycling",
-      "distance_km": 28.41,
-      "duration_s": 5766,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-09-27",
-      "type": "cycling",
-      "distance_km": 13.45,
-      "duration_s": 3223,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-09-28",
-      "type": "cycling",
-      "distance_km": 15.75,
-      "duration_s": 1834,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-09-30",
-      "type": "cycling",
-      "distance_km": 13.27,
-      "duration_s": 3140,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-09-30",
+      "date": "2026-11-17",
       "type": "swimming",
-      "distance_km": 1.0,
-      "duration_s": 1176,
+      "distance_km": 1.05,
+      "duration_s": 2497,
       "raw_type": "lap_swimming"
     },
     {
-      "date": "2026-09-30",
+      "date": "2026-11-17",
       "type": "cycling",
-      "distance_km": 28.07,
-      "duration_s": 3763,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-09-29",
-      "type": "cycling",
-      "distance_km": 15.44,
-      "duration_s": 3193,
+      "distance_km": 45.47,
+      "duration_s": 8213,
       "raw_type": "mountain_biking"
     },
     {
-      "date": "2026-09-29",
-      "type": "cycling",
-      "distance_km": 25.64,
-      "duration_s": 3645,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-10-01",
+      "date": "2026-11-14",
       "type": "cycling",
       "distance_km": 0.0,
-      "duration_s": 2562,
+      "duration_s": 214,
       "raw_type": "indoor_cycling"
     },
     {
-      "date": "2026-10-01",
-      "type": "cycling",
-      "distance_km": 6.72,
-      "duration_s": 1128,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-10-02",
-      "type": "cycling",
-      "distance_km": 20.52,
-      "duration_s": 5023,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-05",
-      "type": "cycling",
-      "distance_km": 20.06,
-      "duration_s": 5111,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-07",
-      "type": "cycling",
-      "distance_km": 16.18,
-      "duration_s": 3453,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-06",
-      "type": "cycling",
-      "distance_km": 26.27,
-      "duration_s": 5828,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-08",
+      "date": "2026-11-13",
       "type": "cycling",
       "distance_km": 0.0,
-      "duration_s": 2321,
+      "duration_s": 1459,
       "raw_type": "indoor_cycling"
     },
     {
-      "date": "2026-10-08",
+      "date": "2026-11-12",
       "type": "cycling",
-      "distance_km": 8.36,
-      "duration_s": 1393,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-10-09",
-      "type": "cycling",
-      "distance_km": 39.73,
-      "duration_s": 5167,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-10-10",
-      "type": "cycling",
-      "distance_km": 20.07,
-      "duration_s": 4778,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-11",
-      "type": "cycling",
-      "distance_km": 31.91,
-      "duration_s": 6603,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-12",
-      "type": "cycling",
-      "distance_km": 16.63,
-      "duration_s": 3996,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-13",
-      "type": "cycling",
-      "distance_km": 47.18,
-      "duration_s": 5923,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-10-14",
-      "type": "cycling",
-      "distance_km": 14.16,
-      "duration_s": 1801,
-      "raw_type": "indoor_cycling"
-    },
-    {
-      "date": "2026-10-15",
-      "type": "cycling",
-      "distance_km": 0.0,
-      "duration_s": 2432,
-      "raw_type": "indoor_cycling"
-    },
-    {
-      "date": "2026-10-15",
-      "type": "cycling",
-      "distance_km": 8.0,
-      "duration_s": 1297,
+      "distance_km": 37.25,
+      "duration_s": 6504,
       "raw_type": "cycling"
     },
     {
-      "date": "2026-10-16",
+      "date": "2026-11-11",
       "type": "cycling",
-      "distance_km": 32.21,
-      "duration_s": 6234,
+      "distance_km": 30.19,
+      "duration_s": 6337,
+      "raw_type": "cycling"
+    },
+    {
+      "date": "2026-11-09",
+      "type": "cycling",
+      "distance_km": 24.91,
+      "duration_s": 5775,
       "raw_type": "mountain_biking"
     },
     {
-      "date": "2026-10-17",
+      "date": "2026-11-08",
       "type": "cycling",
-      "distance_km": 36.99,
-      "duration_s": 4883,
-      "raw_type": "indoor_cycling"
-    },
-    {
-      "date": "2026-10-18",
-      "type": "cycling",
-      "distance_km": 19.99,
-      "duration_s": 4791,
+      "distance_km": 53.15,
+      "duration_s": 12305,
       "raw_type": "mountain_biking"
     },
     {
-      "date": "2026-10-19",
+      "date": "2026-11-07",
       "type": "cycling",
-      "distance_km": 14.97,
-      "duration_s": 3534,
+      "distance_km": 19.65,
+      "duration_s": 3827,
       "raw_type": "mountain_biking"
     },
     {
@@ -242,35 +105,7 @@
       "distance_km": 0.0,
       "duration_s": 1934,
       "raw_type": "indoor_cycling"
-    },
-    {
-      "date": "2026-10-21",
-      "type": "cycling",
-      "distance_km": 5.1,
-      "duration_s": 1979,
-      "raw_type": "cycling"
-    },
-    {
-      "date": "2026-10-21",
-      "type": "cycling",
-      "distance_km": 24.9,
-      "duration_s": 4008,
-      "raw_type": "road_biking"
-    },
-    {
-      "date": "2026-10-20",
-      "type": "cycling",
-      "distance_km": 14.11,
-      "duration_s": 3190,
-      "raw_type": "mountain_biking"
-    },
-    {
-      "date": "2026-10-20",
-      "type": "cycling",
-      "distance_km": 46.48,
-      "duration_s": 5767,
-      "raw_type": "road_biking"
     }
   ],
-  "fetched_at": "2026-10-26T09:44:00"
+  "fetched_at": "2026-11-22T19:02:22"
 }
