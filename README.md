@@ -7,32 +7,15 @@ A friendly competition tracking nightly Garmin sleep scores, weekly averages, an
 ## Want to join?
 
 You will need a Garmin watch that tracks sleep and a Garmin Connect account.
+There is nothing to install. You generate one key from your own Garmin account
+and send it to the admin. Full steps are in **[JOIN.md](JOIN.md)**, in short:
 
-### Step 1 - Install Python
+1. Go to **https://connect.garmin.com/app/settings/personalApiToken** (logged in to Garmin Connect).
+2. Select **Create Key**, accept the terms, choose an expiry (one year is easiest), and **Create**.
+3. The key is shown once. Copy it and send it to the admin privately.
 
-Download and install Python 3.12 or later from [python.org](https://www.python.org/downloads/). 
-
-During installation on Windows, check the box that says **Add Python to PATH**.
-
-### Step 2 - Download the setup script
-
-Download [`garmin_setup_friend.py`](garmin_setup_friend.py) from this repo (click the file, then the download button).
-
-### Step 3 - Run the setup script
-
-Open Terminal (Mac) or Command Prompt (Windows), navigate to where you downloaded the file, and run:
-
-```
-python garmin_setup_friend.py
-```
-
-It will ask for your Garmin email, password, and MFA code. Your password is used once to log in and is never saved or sent anywhere. Any packages the script needs are installed into a temporary folder and automatically cleaned up afterwards, so nothing is left behind on your machine.
-
-### Step 4 - Send your token file
-
-The script generates a file called `yourname_garmin_token.txt`. Send that file to the leaderboard admin.
-
-It contains no password or email address, just a secure session token that lets the leaderboard read your sleep data.
+The key lets the leaderboard read your Garmin sleep and activity data. It holds
+no password or email. You can delete it any time on that same page to leave.
 
 ---
 
@@ -50,4 +33,8 @@ Automatically every morning. The leaderboard admin controls when it refreshes.
 
 ## Can I remove myself?
 
-Yes, just ask the admin. Your token will be removed and your data will no longer be fetched or displayed.
+Yes. Delete your key at **https://connect.garmin.com/app/settings/personalApiToken**
+and the leaderboard can no longer read your data, instantly, whatever the admin
+does. You can also just ask the admin to drop you.
+
+---

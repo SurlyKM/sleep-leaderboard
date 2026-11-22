@@ -1,0 +1,54 @@
+name: Refresh Sleep Leaderboard
+
+# Runs twice each morning Sydney time and can also be triggered by hand from
+# the Actions tab. Uses Garmin's official Personal API - each person's API key
+# is read from the GARMIN_API_KEYS secret, so there are no tokens to restore
+# and no Python packages to install.
+on:
+  schedule:
+    - cron: '30 5 * * *'
+      timezone: "Australia/Sydney"
+    - cron: '30 7 * * *'
+      timezone: "Australia/Sydney"
+  workflow_dispatch:
+
+# Needed so the job can commit the updated JSON + cache back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    # GitHub runners are UTC, which makes "today" lag behind Sydney by 10-11
+    # hours. This makes the Python code see Sydney local time instead.
+    env:
+      TZ: Australia/Sydney
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Fetch data and build JSON
+        # The only secret in play. It is a JSON object of name -> Garmin
+        # Personal API key, e.g. {"Kyle":"...","Ben":"..."}. It is exposed to
+        # this one step as an env var and never written to disk.
+        env:
+          GARMIN_API_KEYS: ${{ secrets.GARMIN_API_KEYS }}
+        run: python refresh.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f scores.json activities.json data
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update leaderboard data $(date +%Y-%m-%d)"
+            git pull --rebase --autostash
+            git push
+          fi
