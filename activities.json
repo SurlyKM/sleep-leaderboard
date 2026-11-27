@@ -2,12 +2,12 @@
   "users": [
     {
       "name": "Kyle",
-      "weekly_steps": 34400,
-      "avg_daily_steps": 4914,
+      "weekly_steps": 30286,
+      "avg_daily_steps": 4327,
       "running_km": 0,
       "running_sessions": 0,
-      "cycling_km": 51.7,
-      "cycling_sessions": 3,
+      "cycling_km": 71.7,
+      "cycling_sessions": 5,
       "swimming_km": 0,
       "swimming_sessions": 0
     }
@@ -18,5 +18,5 @@
     "Ben": "Ben \ud83d\udc27"
   },
   "token_errors": [],
-  "updated_at": "2026-11-26T13:58:42"
+  "updated_at": "2026-11-27T12:49:25"
 }
