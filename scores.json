@@ -3,59 +3,33 @@
     {
       "name": "Kyle",
       "latest": {
-        "date": "2026-11-27",
-        "score": 76,
-        "quality": "FAIR",
-        "total": 24300,
-        "total_str": "6h 45m",
-        "deep": 3960,
-        "deep_str": "1h 6m",
-        "deep_pct": 16.3,
-        "light": 17940,
-        "light_str": "4h 59m",
-        "light_pct": 73.8,
-        "rem": 2400,
-        "rem_str": "40m",
-        "rem_pct": 9.9,
-        "awake": 900,
-        "awake_str": "15m",
-        "avg_hr": 57.0,
-        "avg_hrv": 51,
+        "date": "2026-11-28",
+        "score": 88,
+        "quality": "GOOD",
+        "total": 26580,
+        "total_str": "7h 23m",
+        "deep": 3180,
+        "deep_str": "53m",
+        "deep_pct": 12.0,
+        "light": 16440,
+        "light_str": "4h 34m",
+        "light_pct": 61.9,
+        "rem": 6960,
+        "rem_str": "1h 56m",
+        "rem_pct": 26.2,
+        "awake": 480,
+        "awake_str": "8m",
+        "avg_hr": 54.0,
+        "avg_hrv": 50,
         "hrv_status": "BALANCED",
         "avg_stress": 13.0,
-        "avg_spo2": 96.0,
+        "avg_spo2": 94.0,
         "avg_respiration": 13.0,
-        "resting_hr": 52,
-        "body_battery_change": 48
+        "resting_hr": 51,
+        "body_battery_change": 54
       },
-      "weekly_avg": 74.2,
+      "weekly_avg": 76.8,
       "history": [
-        {
-          "date": "2026-11-21",
-          "score": 72,
-          "quality": "FAIR",
-          "total": 21360,
-          "total_str": "5h 56m",
-          "deep": 6660,
-          "deep_str": "1h 51m",
-          "deep_pct": 31.2,
-          "light": 12240,
-          "light_str": "3h 24m",
-          "light_pct": 57.3,
-          "rem": 2460,
-          "rem_str": "41m",
-          "rem_pct": 11.5,
-          "awake": 360,
-          "awake_str": "6m",
-          "avg_hr": 58.0,
-          "avg_hrv": 37,
-          "hrv_status": "LOW",
-          "avg_stress": 20.0,
-          "avg_spo2": 94.0,
-          "avg_respiration": 14.0,
-          "resting_hr": 54,
-          "body_battery_change": 52
-        },
         {
           "date": "2026-11-22",
           "score": 64,
@@ -188,7 +162,33 @@
           "avg_spo2": 96.0,
           "avg_respiration": 13.0,
           "resting_hr": 52,
-          "body_battery_change": 48
+          "body_battery_change": 64
+        },
+        {
+          "date": "2026-11-28",
+          "score": 88,
+          "quality": "GOOD",
+          "total": 26580,
+          "total_str": "7h 23m",
+          "deep": 3180,
+          "deep_str": "53m",
+          "deep_pct": 12.0,
+          "light": 16440,
+          "light_str": "4h 34m",
+          "light_pct": 61.9,
+          "rem": 6960,
+          "rem_str": "1h 56m",
+          "rem_pct": 26.2,
+          "awake": 480,
+          "awake_str": "8m",
+          "avg_hr": 54.0,
+          "avg_hrv": 50,
+          "hrv_status": "BALANCED",
+          "avg_stress": 13.0,
+          "avg_spo2": 94.0,
+          "avg_respiration": 13.0,
+          "resting_hr": 51,
+          "body_battery_change": 54
         }
       ]
     }
@@ -201,7 +201,7 @@
   },
   "longest_streak": {
     "name": "Kyle",
-    "days": 25,
+    "days": 24,
     "end_date": "2026-11-22"
   },
   "nights_won": {
@@ -221,5 +221,5 @@
     "Ben": "Ben \ud83d\udc27"
   },
   "token_errors": [],
-  "updated_at": "2026-11-27T14:04:54"
+  "updated_at": "2026-11-28T12:31:17"
 }
