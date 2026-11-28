@@ -31,6 +31,13 @@
   },
   "activities": [
     {
+      "date": "2026-11-28",
+      "type": "cycling",
+      "distance_km": 19.03,
+      "duration_s": 4629,
+      "raw_type": "mountain_biking"
+    },
+    {
       "date": "2026-11-27",
       "type": "cycling",
       "distance_km": 19.0,
@@ -129,5 +136,5 @@
       "raw_type": "mountain_biking"
     }
   ],
-  "fetched_at": "2026-11-28T12:31:19"
+  "fetched_at": "2026-11-28T13:52:35"
 }

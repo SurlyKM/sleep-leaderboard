@@ -6,8 +6,8 @@
       "avg_daily_steps": 3485,
       "running_km": 0,
       "running_sessions": 0,
-      "cycling_km": 71.7,
-      "cycling_sessions": 5,
+      "cycling_km": 90.8,
+      "cycling_sessions": 6,
       "swimming_km": 0,
       "swimming_sessions": 0
     }
@@ -18,5 +18,5 @@
     "Ben": "Ben \ud83d\udc27"
   },
   "token_errors": [],
-  "updated_at": "2026-11-28T12:31:17"
+  "updated_at": "2026-11-28T13:52:33"
 }
